@@ -16,18 +16,18 @@ npm install -g goodreads-export
 ## Usage
 
 ```shell
-goodreads-export <ID>
+goodreads-export <id>
 ```
 
-To find `<ID>`, navigate to **My Books** while logged in to Goodreads. The URL of
+To find `<id>`, navigate to **My Books** while logged in to Goodreads. The URL of
 that page contains the ID. For example,
 
 ```
-https://www.goodreads.com/review/list/<ID>?shelf=%23ALL%23
+https://www.goodreads.com/review/list/<id>?shelf=%23ALL%23
 ```
 
 ### Saving to a file
 
 ```shell
-goodreads-export <ID> > goodreads_books.json
+goodreads-export <id> > goodreads_books.json
 ```
