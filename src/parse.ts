@@ -53,6 +53,7 @@ export function review(html: string): ParsedReview {
   const rowText = ast('.readingTimeline div.readingTimeline__row > div.readingTimeline__text').text()
 
   const rows = rowText
+    .replace(new RegExp(`${whitespace}*page${whitespace}*\\d+${whitespace}*`, 'g'), '')
     .replace(new RegExp(`${whitespace}*${endash}${whitespace}*`, 'g'), ' - ')
     .replace(new RegExp(`${whitespace}*:${whitespace}*`, 'g'), ': ')
     .replace(/ +/g, ' ')

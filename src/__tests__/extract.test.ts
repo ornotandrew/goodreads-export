@@ -14,13 +14,14 @@ describe('getReviewInfo', () => {
   test('basic', async () => {
     const actual = await getReviewInfo(ids.basicReview)
     expect(actual).toEqual({
+      reviewId: ids.basicReview,
       timeline: {
         shelved: '2021-01-03',
         started: '2019-09-30',
         finished: '2019-11-01',
         progress: [
-          { percent: 0, page: 0, date: '2019-09-30' },
-          { percent: 100, page: null, date: '2019-11-01' },
+          { percent: 0, date: '2019-09-30' },
+          { percent: 100, date: '2019-11-01' },
         ]
       }
     })
@@ -29,15 +30,33 @@ describe('getReviewInfo', () => {
   test('with progress', async () => {
     const actual = await getReviewInfo(ids.withProgress)
     expect(actual).toEqual({
+      reviewId: ids.withProgress,
       timeline: {
         shelved: '2020-10-22',
         started: '2020-10-22',
         finished: '2020-12-22',
         progress: [
-          { percent: 0, page: 0, date: '2020-10-22' },
-          { percent: 27, page: null, date: '2020-11-12' },
-          { percent: 89, page: null, date: '2020-12-15' },
-          { percent: 100, page: null, date: '2020-12-22' },
+          { percent: 0, date: '2020-10-22' },
+          { percent: 27, date: '2020-11-12' },
+          { percent: 89, date: '2020-12-15' },
+          { percent: 100, date: '2020-12-22' },
+        ]
+      }
+    })
+  })
+
+  test('with progress as page number', async () => {
+    const actual = await getReviewInfo(ids.withPageNumberProgress)
+    expect(actual).toEqual({
+      reviewId: ids.withPageNumberProgress,
+      timeline: {
+        shelved: '2020-12-22',
+        started: '2020-12-22',
+        finished: null,
+        progress: [
+          { percent: 0, date: '2020-12-22' },
+          { percent: 37, date: '2021-01-08' },
+          { percent: 60, date: '2021-01-30' },
         ]
       }
     })

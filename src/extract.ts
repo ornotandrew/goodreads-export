@@ -23,8 +23,7 @@ export interface ReviewInfo {
   started?: string
   finished?: string
   progress: {
-    percent?: number
-    page?: number
+    percent: number
     date: string
   }[]
 }
@@ -38,28 +37,26 @@ export async function getReviewInfo(reviewId: number) {
     finished: parsed.finished || null,
     progress: []
   }
-  timeline.started && timeline.progress.push({ percent: 0, page: 0, date: timeline.started })
-  timeline.finished && timeline.progress.push({ percent: 100, page: null, date: timeline.finished })
+  timeline.started && timeline.progress.push({ percent: 0, date: timeline.started })
+  timeline.finished && timeline.progress.push({ percent: 100, date: timeline.finished })
 
   Object.entries(parsed).forEach(([progressDescription, date]) => {
-    if (progressDescription in timeline) {return }
+    if (progressDescription in timeline) { return }
     timeline.progress.push({
       percent: parseFloat(progressDescription),
-      page: null,
       date
     })
   })
 
   timeline.progress.sort((a, b) => a.percent < b.percent ? -1 : 1)
 
-  return { timeline }
+  return { reviewId, timeline }
 }
 
 async function extract(listId: number): Promise<object[]> {
   const reviewIds = await getAllReviewIds(listId)
-  await Promise.all(reviewIds.map(getReviewInfo))
+  return Promise.all(reviewIds.map(getReviewInfo))
   // await getReviewInfo(3741591694)
-  return [{}]
 }
 
 export default extract
