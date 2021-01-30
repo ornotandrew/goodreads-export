@@ -2,7 +2,7 @@ import cheerio from 'cheerio'
 import { DateTime } from 'luxon'
 
 const endash = '–' // this is NOT the same as "-"
-const whitespace = '[\n\s ]'
+const whitespace = '[\n\\s ]'
 
 type ParsedReviewIds = {
   reviewIds: number[],
@@ -53,11 +53,15 @@ export function review(html: string): ParsedReview {
   const rowText = ast('.readingTimeline div.readingTimeline__row > div.readingTimeline__text').text()
 
   const rows = rowText
+    // remove rows that we don't want to see at all
     .replace(new RegExp(`${whitespace}*page${whitespace}*\\d+${whitespace}*`, 'g'), '')
+    // re-organise the remaining rows into something reasonable
     .replace(new RegExp(`${whitespace}*${endash}${whitespace}*`, 'g'), ' - ')
     .replace(new RegExp(`${whitespace}*:${whitespace}*`, 'g'), ': ')
     .replace(/ +/g, ' ')
     .split('\n')
+    .filter(s => !s.includes('Shelved as:'))
+    .filter(s => s.includes('-')) // e.g. "Started Reading" with no date
     .filter(s => !/^\s*$/.exec(s))
 
   const simplifyDescription = (goodreadsDescription: string): string => {
