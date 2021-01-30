@@ -15,6 +15,7 @@ describe('getReviewInfo', () => {
     const actual = await getReviewInfo(ids.reviews.basic)
     expect(actual).toEqual({
       reviewId: ids.reviews.basic,
+      bookUrl: 'https://www.goodreads.com/book/show/22016392-assassin-s-quest',
       timeline: {
         shelved: '2021-01-03',
         started: '2019-09-30',
@@ -31,6 +32,7 @@ describe('getReviewInfo', () => {
     const actual = await getReviewInfo(ids.reviews.progress)
     expect(actual).toEqual({
       reviewId: ids.reviews.progress,
+      bookUrl: 'https://www.goodreads.com/book/show/35231.Lord_of_Chaos',
       timeline: {
         shelved: '2020-10-22',
         started: '2020-10-22',
@@ -49,6 +51,7 @@ describe('getReviewInfo', () => {
     const actual = await getReviewInfo(ids.reviews.pageNumberProgress)
     expect(actual).toEqual({
       reviewId: ids.reviews.pageNumberProgress,
+      bookUrl: 'https://www.goodreads.com/book/show/13890.A_Crown_of_Swords',
       timeline: {
         shelved: '2020-12-22',
         started: '2020-12-22',
@@ -66,6 +69,7 @@ describe('getReviewInfo', () => {
     const actual = await getReviewInfo(ids.reviews.shelvedAs)
     expect(actual).toEqual({
       reviewId: ids.reviews.shelvedAs,
+      bookUrl: 'https://www.goodreads.com/book/show/22016387-royal-assassin',
       timeline: {
         shelved: '2021-01-03',
         started: '2019-08-15',
@@ -82,6 +86,7 @@ describe('getReviewInfo', () => {
     const actual = await getReviewInfo(ids.reviews.withoutStartDate)
     expect(actual).toEqual({
       reviewId: ids.reviews.withoutStartDate,
+      bookUrl: 'https://www.goodreads.com/book/show/7664041-inheritance',
       timeline: {
         shelved: '2020-07-03',
         started: null,

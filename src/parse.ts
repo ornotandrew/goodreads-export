@@ -39,13 +39,15 @@ export function reviewIds(jsText: string): ParsedReviewIds {
 }
 
 type ParsedReview = {
-  // The key here will either be 
-  // - a timeline event like 'started'
-  // - a percentage like '50%'
-  // - a page number (TODO)
-  //
-  // The value is an ISO date.
-  [key: string]: string
+  bookUrl: string
+  updates: {
+    // The key here will either be 
+    // - a timeline event like 'started'
+    // - a percentage like '50%'
+    //
+    // The value is an ISO date.
+    [key: string]: string
+  }
 }
 
 export function review(html: string): ParsedReview {
@@ -73,9 +75,16 @@ export function review(html: string): ParsedReview {
     return mapping[goodreadsDescription] || goodreadsDescription
   }
 
-  return rows.reduce((acc, row) => {
+  const updates = rows.reduce((acc, row) => {
     const [dateStr, description] = row.split(' - ')
     const date = DateTime.fromFormat(dateStr, 'LLLL d, yyyy').toISODate()
     return { ...acc, [simplifyDescription(description)]: date }
   }, {})
+
+  const bookPath = ast('a.bookTitle[itemprop="url"]').attr('href')
+
+  return {
+    bookUrl: `https://www.goodreads.com${bookPath}`,
+    updates
+  }
 }
