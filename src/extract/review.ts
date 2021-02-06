@@ -1,5 +1,5 @@
-import { getListPage, getReview } from './goodreads'
-import * as parse from './parse'
+import { getListPage, getReview } from '../goodreads'
+import * as parse from '../parse/review'
 
 export async function getAllReviewIds(listId: number): Promise<number[]> {
   let allReviewIds = []
@@ -62,10 +62,3 @@ export async function getReviewInfo(reviewId: number): Promise<ReviewInfo> {
     timeline
   }
 }
-
-async function extract(listId: number): Promise<object[]> {
-  const reviewIds = await getAllReviewIds(listId)
-  return Promise.all(reviewIds.map(getReviewInfo))
-}
-
-export default extract

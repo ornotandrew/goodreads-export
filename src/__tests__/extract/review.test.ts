@@ -1,6 +1,6 @@
-import { getAllReviewIds, getReviewInfo } from '../extract'
-import * as goodreads from '../goodreads'
-import { ids } from './constants'
+import { getAllReviewIds, getReviewInfo } from '../../extract/review'
+import * as goodreads from '../../goodreads'
+import { ids } from '../constants'
 
 describe('getAllReviewids', () => {
   test('gets all the review ids.reviews.from all pages', async () => {
