@@ -1,6 +1,6 @@
 import { getListPage } from '../../goodreads'
 import * as parse from '../../parse/review'
-import { ids } from '../constants'
+import { reviewIds as ids } from '../constants'
 
 describe('reviewIds', () => {
   test('first page', async () => expect(parse.reviewIds(await getListPage(ids.list, 1))).toEqual({

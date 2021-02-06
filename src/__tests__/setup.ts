@@ -14,7 +14,9 @@ type GoodreadsFn = (...args: any[]) => Promise<string>
 
 function withCache(fnName: string, fn: GoodreadsFn): GoodreadsFn {
   return async (...args: any[]): Promise<string> => {
-    const cachePath = path.resolve(cacheFolder, `${fnName}_${args.join('_')}`)
+    const filename = `${fnName}_${args.join('_')}`
+      .replace(/[^A-Za-z0-9._-]/g, '_') // make sure the filename is valid
+    const cachePath = path.resolve(cacheFolder, filename)
     if (fs.existsSync(cachePath)) {
       return fs.readFileSync(cachePath, 'utf8').toString()
     }
