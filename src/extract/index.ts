@@ -1,8 +1,21 @@
-import { getAllReviewIds, getReviewInfo } from './review'
+import { getAllReviewIds, getReviewInfo, ReviewInfo } from './review'
+import { getBookInfo } from './book'
+import { Book } from '../parse/book'
 
-async function extract(listId: number): Promise<object[]> {
+interface Extract extends ReviewInfo {
+  book: Book
+}
+
+async function extract(listId: number): Promise<Extract[]> {
+  console.log(`[list: ${listId}] fetching`)
   const reviewIds = await getAllReviewIds(listId)
-  return Promise.all(reviewIds.map(getReviewInfo))
+  return Promise.all(reviewIds.map(async reviewId => {
+    console.log(`[review: ${reviewId}] fetching review`)
+    const review = await getReviewInfo(reviewId)
+    console.log(`[review: ${reviewId}] fetching book`)
+    const book = await getBookInfo(review.bookUrl)
+    return { ...review, book }
+  }))
 }
 
 export default extract

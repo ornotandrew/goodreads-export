@@ -14,5 +14,4 @@ export interface ReviewInfo {
     timeline: ReviewInfoTimeline;
 }
 export declare function getReviewInfo(reviewId: number): Promise<ReviewInfo>;
-declare function extract(listId: number): Promise<object[]>;
-export default extract;
+export {};

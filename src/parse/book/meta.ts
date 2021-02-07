@@ -33,7 +33,11 @@ export default function getMetaValues(html: string): MetaValues {
       search: { property: 'og:description' }
     },
     imageUrl: {
-      search: { property: 'og:image' }
+      search: { property: 'og:image' },
+      transform: value => {
+        const lastSlash = value.lastIndexOf('/')
+        return value.slice(0, lastSlash) + value.slice(lastSlash).replace(/\..*.jpg/, '.jpg')
+      }
     },
     authorUrl: {
       search: { property: 'books:author' }
