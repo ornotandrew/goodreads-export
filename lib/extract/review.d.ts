@@ -1,5 +1,5 @@
 export declare function getAllReviewIds(listId: number): Promise<number[]>;
-export interface ReviewInfo {
+interface ReviewInfoTimeline {
     shelved: string;
     started?: string;
     finished?: string;
@@ -8,9 +8,10 @@ export interface ReviewInfo {
         date: string;
     }[];
 }
-export declare function getReviewInfo(reviewId: number): Promise<{
+export interface ReviewInfo {
     reviewId: number;
-    timeline: ReviewInfo;
-}>;
-declare function extract(listId: number): Promise<object[]>;
-export default extract;
+    bookUrl: string;
+    timeline: ReviewInfoTimeline;
+}
+export declare function getReviewInfo(reviewId: number): Promise<ReviewInfo>;
+export {};
