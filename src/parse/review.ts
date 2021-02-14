@@ -5,8 +5,11 @@ const endash = '–' // this is NOT the same as "-"
 const whitespace = '[\n\\s ]'
 
 type ParsedReviewIds = {
-  reviewIds: number[],
-  progress: string,
+  reviewIds: number[]
+  progress: {
+    current: number
+    total: number
+  }
   isLastPage: boolean
 }
 
@@ -29,13 +32,13 @@ export function reviewIds(jsText: string): ParsedReviewIds {
   // Element.update("infiniteStatus", "60 of 131 loaded");
   const statusLine = lines.find(l => l.startsWith('Element.update'))
   const match = /(\d+) of (\d+)/.exec(statusLine)
-  // const [thisIndex, totalItems] = [match[1], match[2]].map(parseInt)
+  const [current, total] = [match[1], match[2]].map(n => parseInt(n))
 
   // Finally, if this is the last page, we will also have the following line
   // InfiniteScroll.isDone = true;
   const isLastPage = lines.includes('InfiniteScroll.isDone = true;')
 
-  return { reviewIds, progress: match[0], isLastPage }
+  return { reviewIds, progress: { current, total }, isLastPage }
 }
 
 type ParsedReview = {

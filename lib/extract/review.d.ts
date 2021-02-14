@@ -1,4 +1,5 @@
-export declare function getAllReviewIds(listId: number): Promise<number[]>;
+import cliProgress from 'cli-progress';
+export declare function getAllReviewIds(listId: number, multibar: cliProgress.MultiBar): Promise<number[]>;
 interface ReviewInfoTimeline {
     shelved: string;
     started?: string;
