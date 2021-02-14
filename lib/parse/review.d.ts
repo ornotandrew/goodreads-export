@@ -1,6 +1,9 @@
 declare type ParsedReviewIds = {
     reviewIds: number[];
-    progress: string;
+    progress: {
+        current: number;
+        total: number;
+    };
     isLastPage: boolean;
 };
 export declare function reviewIds(jsText: string): ParsedReviewIds;

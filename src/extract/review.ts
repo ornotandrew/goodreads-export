@@ -1,12 +1,19 @@
 import { getListPage, getReview } from '../goodreads'
 import * as parse from '../parse/review'
+import cliProgress from 'cli-progress'
+import { barOptions } from '../util'
 
-export async function getAllReviewIds(listId: number): Promise<number[]> {
+export async function getAllReviewIds(listId: number, multibar: cliProgress.MultiBar): Promise<number[]> {
+  let bar: cliProgress.SingleBar
   let allReviewIds = []
   let page = 1
   while (true) {
     const { reviewIds, progress, isLastPage } = parse.reviewIds(await getListPage(listId, page))
-    console.log(progress)
+    if (page === 1) {
+      bar = multibar.create(progress.total, progress.current, barOptions('Review IDs', '📋'))
+    } else {
+      bar.update(progress.current)
+    }
     allReviewIds = allReviewIds.concat(reviewIds)
     if (isLastPage) {
       break

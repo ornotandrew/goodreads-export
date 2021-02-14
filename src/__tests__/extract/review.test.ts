@@ -1,10 +1,13 @@
 import { getAllReviewIds, getReviewInfo } from '../../extract/review'
 import * as goodreads from '../../goodreads'
 import { reviewIds as ids } from '../constants'
+import cliProgress from 'cli-progress'
 
 describe('getAllReviewids', () => {
   test('gets all the review ids.reviews.from all pages', async () => {
-    const actual = await getAllReviewIds(ids.list)
+    const dummyMultibar = new cliProgress.MultiBar({ noTTYOutput: true, format: '', clearOnComplete: true })
+    const actual = await getAllReviewIds(ids.list, dummyMultibar)
+    dummyMultibar.stop()
     expect(goodreads.getListPage as jest.Mock).toHaveBeenCalledTimes(5)
     expect(actual.length).toEqual(131)
   })
