@@ -2,8 +2,9 @@ import { getAllReviewIds, getReviewInfo, ReviewInfo } from './review'
 import { getBookInfo } from './book'
 import { Book } from '../parse/book'
 import cliProgress from 'cli-progress'
-import { barOptions } from '../util'
+import { barOptions, batchedPromiseAll } from '../util'
 
+const batchSize = 50
 
 interface Extract extends ReviewInfo {
   book: Book
@@ -17,14 +18,14 @@ async function extract(listId: number, multibar: cliProgress.MultiBar): Promise<
     bookInfo: multibar.create(reviewIds.length, 0, barOptions('Books', '📕')),
   }
 
-  const results = await Promise.all(reviewIds.map(async reviewId => {
+  const results = await batchedPromiseAll(async (reviewId: number) => {
     const review = await getReviewInfo(reviewId)
     bars.reviewInfo.increment()
 
     const book = await getBookInfo(review.bookUrl)
     bars.bookInfo.increment()
     return { ...review, book }
-  }))
+  }, reviewIds.map(id => [id]), batchSize)
 
   return results
 }

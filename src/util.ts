@@ -28,6 +28,7 @@ export const exit = (error?: Error) => {
 
 process.on('SIGINT', () => exit())
 
+
 // caches based on the first argument only!
 export function asyncMemo<A, R>(fn: (arg: A, ...rest: any[]) => Promise<R>): (arg: A, ...rest: any[]) => Promise<R> {
   const cache: {[key: string]: R} = {}
@@ -37,4 +38,18 @@ export function asyncMemo<A, R>(fn: (arg: A, ...rest: any[]) => Promise<R>): (ar
       ? Promise.resolve(cache[key])
       : fn(arg, ...rest)
   }
+}
+
+export async function batchedPromiseAll<A, R>(
+  fn: (...args: A[]) => Promise<R>,
+  args: A[][], batchSize: number
+): Promise<R[]> {
+  let position = 0
+  let results = []
+  while (position < args.length) {
+    const argsForBatch = args.slice(position, position + batchSize)
+    results = [...results, ...await Promise.all(argsForBatch.map(args => fn(...args)))]
+    position += batchSize
+  }
+  return results
 }
