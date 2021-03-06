@@ -27,3 +27,14 @@ export const exit = (error?: Error) => {
 }
 
 process.on('SIGINT', () => exit())
+
+// caches based on the first argument only!
+export function asyncMemo<A, R>(fn: (arg: A, ...rest: any[]) => Promise<R>): (arg: A, ...rest: any[]) => Promise<R> {
+  const cache: {[key: string]: R} = {}
+  return (arg: A, ...rest: any[]) => {
+    const key = String(arg)
+    return cache.hasOwnProperty(key)
+      ? Promise.resolve(cache[key])
+      : fn(arg, ...rest)
+  }
+}

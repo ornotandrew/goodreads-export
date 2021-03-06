@@ -1,9 +1,9 @@
 import { getListPage, getReview } from '../goodreads'
 import * as parse from '../parse/review'
 import cliProgress from 'cli-progress'
-import { barOptions } from '../util'
+import { asyncMemo, barOptions } from '../util'
 
-export async function getAllReviewIds(listId: number, multibar: cliProgress.MultiBar): Promise<number[]> {
+export const getAllReviewIds = asyncMemo(async(listId: number, multibar: cliProgress.MultiBar): Promise<number[]> => {
   let bar: cliProgress.SingleBar
   let allReviewIds = []
   let page = 1
@@ -23,7 +23,7 @@ export async function getAllReviewIds(listId: number, multibar: cliProgress.Mult
   }
 
   return allReviewIds
-}
+})
 
 interface ReviewInfoTimeline {
   shelved: string
@@ -41,7 +41,7 @@ export interface ReviewInfo {
   timeline: ReviewInfoTimeline
 }
 
-export async function getReviewInfo(reviewId: number): Promise<ReviewInfo> {
+export const getReviewInfo = asyncMemo(async (reviewId: number): Promise<ReviewInfo> => {
   const { bookUrl, updates } = parse.review(await getReview(reviewId))
 
   const timeline: ReviewInfoTimeline = {
@@ -68,4 +68,4 @@ export async function getReviewInfo(reviewId: number): Promise<ReviewInfo> {
     bookUrl,
     timeline
   }
-}
+})
