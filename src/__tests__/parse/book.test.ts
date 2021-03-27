@@ -1,10 +1,10 @@
-import { getBook } from '../../goodreads'
+import { getGenericUrl } from '../../goodreads'
 import * as parse from '../../parse/book'
 import { bookUrls as urls } from '../constants'
 
 /* eslint-disable max-len */
 describe('part of a series', () => {
-  test('Lord of Chaos', async () => expect(parse.book(await getBook(urls.lordOfChaos))).toEqual({
+  test('Lord of Chaos', async () => expect(parse.book(await getGenericUrl(urls.lordOfChaos))).toEqual({
     title: 'Lord of Chaos',
     authorUrl: 'https://www.goodreads.com/author/show/6252.Robert_Jordan',
     description: 'In this sequel to the phenomenal New York Times bestseller The Fires of Heaven, we plunge again into Robert Jordan\'s extraordinarily rich...',
@@ -14,7 +14,7 @@ describe('part of a series', () => {
     seriesUrl: 'https://www.goodreads.com/series/41526-the-wheel-of-time'
   }))
 
-  test('Scars', async () => expect(parse.book(await getBook(urls.scars))).toEqual({
+  test('Scars', async () => expect(parse.book(await getGenericUrl(urls.scars))).toEqual({
     title: 'Scars',
     authorUrl: 'https://www.goodreads.com/author/show/1001882.Chris_Wraight',
     description: 'Jaghatai Khan and his White Scars Legion must choose - the Emperor or Horus?Fresh from their conquest of Chondax and the discovery of Hor...',
@@ -26,7 +26,7 @@ describe('part of a series', () => {
 })
 
 describe('individual book', () => {
-  test('1984', async () => expect(parse.book(await getBook(urls['1984']))).toEqual({
+  test('1984', async () => expect(parse.book(await getGenericUrl(urls['1984']))).toEqual({
     title: 'Nineteen Eighty-Four',
     authorUrl: 'https://www.goodreads.com/author/show/3706.George_Orwell',
     description: '\'It was a bright cold day in April, and the clocks were striking thirteen.\'  Winston Smith works for the Ministry of truth in London, chi...',
@@ -35,5 +35,4 @@ describe('individual book', () => {
     pageCount: 311
   }))
 })
-
 /* eslint-enable max-len */

@@ -14,3 +14,9 @@ export const bookUrls = {
   scars: 'https://www.goodreads.com/book/show/18143803-scars',
   '1984': 'https://www.goodreads.com/book/show/3744438-1984'
 }
+
+export const authorUrls = {
+  robertJordan: 'https://www.goodreads.com/author/show/6252.Robert_Jordan',
+  brandonSanderson: 'https://www.goodreads.com/author/show/38550.Brandon_Sanderson',
+  georgeOrwell: 'https://www.goodreads.com/author/show/3706.George_Orwell',
+}

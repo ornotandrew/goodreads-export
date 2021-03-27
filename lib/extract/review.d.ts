@@ -1,5 +1,4 @@
-import cliProgress from 'cli-progress';
-export declare function getAllReviewIds(listId: number, multibar: cliProgress.MultiBar): Promise<number[]>;
+export declare const getAllReviewIds: (arg: number, ...rest: any[]) => Promise<number[]>;
 interface ReviewInfoTimeline {
     shelved: string;
     started?: string;
@@ -14,5 +13,5 @@ export interface ReviewInfo {
     bookUrl: string;
     timeline: ReviewInfoTimeline;
 }
-export declare function getReviewInfo(reviewId: number): Promise<ReviewInfo>;
+export declare const getReviewInfo: (arg: number, ...rest: any[]) => Promise<ReviewInfo>;
 export {};
