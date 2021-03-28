@@ -24,7 +24,7 @@ npm install -g goodreads-export
 
 ## Usage
 
-By default, the extract will be printed on `stdout`. To save the output to a
+By default, the extract will be printed to `stdout`. To save the output to a
 file, pipe the output.
 
 ```shell
@@ -37,3 +37,4 @@ that page contains the ID. For example,
 ```
 https://www.goodreads.com/review/list/{list_id}?shelf=%23ALL%23
 ```
+
