@@ -41,7 +41,7 @@ export function reviewIds(jsText: string): ParsedReviewIds {
   return { reviewIds, progress: { current, total }, isLastPage }
 }
 
-type ParsedReview = {
+type Review = {
   bookUrl: string
   updates: {
     // The key here will either be 
@@ -53,7 +53,7 @@ type ParsedReview = {
   }
 }
 
-export function review(html: string): ParsedReview {
+export function review(html: string): Review {
   const ast = cheerio.load(html)
   const rowText = ast('.readingTimeline div.readingTimeline__row > div.readingTimeline__text').text()
 

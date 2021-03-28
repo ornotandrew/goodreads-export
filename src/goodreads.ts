@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import axios from 'axios'
 
 export const getListPage = (listId: number, page: number) => axios.get(

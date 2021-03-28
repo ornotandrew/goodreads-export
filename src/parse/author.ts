@@ -1,5 +1,6 @@
 import cheerio from 'cheerio'
 import { DateTime } from 'luxon'
+import { Author } from '../types'
 
 // TODO: just pass the AST in directly (once cheerio exports the correct type)
 function getTable(html: string): Record<string, string> {
@@ -23,15 +24,6 @@ function getTable(html: string): Record<string, string> {
   })
 
   return table
-}
-
-export type Author = {
-  name: string
-  birthDate: string
-  deathDate?: string
-  genres?: string[]
-  websiteUrl?: string
-  twitterUrl?: string
 }
 
 export function author(html: string): Author {

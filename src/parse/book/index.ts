@@ -1,15 +1,6 @@
 import getMetaValues from './meta'
 import getDataBoxValues from './dataBox'
-
-export interface Book {
-  title: string
-  authorUrl: string
-  description: string
-  imageUrl: string
-  isbn: number
-  pageCount: number
-  seriesUrl?: string
-}
+import { Book } from '../../types'
 
 export function book(html: string): Book {
   // Goodreads adds some of the more important fields as <meta> tags at the top
