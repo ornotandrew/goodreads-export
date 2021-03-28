@@ -24,19 +24,16 @@ npm install -g goodreads-export
 
 ## Usage
 
+By default, the extract will be printed to `stdout`. To save the output to a
+file, pipe the output.
+
 ```shell
-goodreads-export {id}
+goodreads-export {list_id} > goodreads_extract.json
 ```
 
-To find `{id}`, navigate to **My Books** while logged in to Goodreads. The URL of
+To find `{list_id}`, navigate to **My Books** while logged in to Goodreads. The URL of
 that page contains the ID. For example,
 
 ```
-https://www.goodreads.com/review/list/{id}?shelf=%23ALL%23
-```
-
-### Saving to a file
-
-```shell
-goodreads-export {id} > goodreads_books.json
+https://www.goodreads.com/review/list/{list_id}?shelf=%23ALL%23
 ```
