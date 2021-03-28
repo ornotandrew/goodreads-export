@@ -1,7 +1,7 @@
 # Goodreads export
 
 ![npm version](https://img.shields.io/npm/v/goodreads-export)
-![Lines](https://img.shields.io/badge/Coverage-90.97%25-brightgreen.svg)
+![Lines](#lines#)
 ![tests](https://img.shields.io/badge/tests-passing-brightgreen)
 
 The [built-in export tool](https://www.goodreads.com/review/import) on
