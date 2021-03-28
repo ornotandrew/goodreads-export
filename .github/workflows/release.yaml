@@ -22,6 +22,8 @@ jobs:
         run: npm test
       - name: Build
         run: npm run build
+      - name: Make badges
+        run: npm run make-badges
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
