@@ -17,10 +17,22 @@ still a work-in-progress, but currently the outputs look like this
     "started": "2020-10-22",
     "finished": "2020-12-22",
     "progress": [
-      { "percent": 0, "date": "2020-10-22" },
-      { "percent": 27, "date": "2020-11-12" },
-      { "percent": 89, "date": "2020-12-15" },
-      { "percent": 100, "date": "2020-12-22" }
+      {
+        "percent": 0,
+        "date": "2020-10-22"
+      },
+      {
+        "percent": 27,
+        "date": "2020-11-12"
+      },
+      {
+        "percent": 89,
+        "date": "2020-12-15"
+      },
+      {
+        "percent": 100,
+        "date": "2020-12-22"
+      }
     ]
   },
   "book": {
@@ -31,6 +43,14 @@ still a work-in-progress, but currently the outputs look like this
     "pageCount": 1011,
     "title": "Lord of Chaos",
     "seriesUrl": "https://www.goodreads.com/series/41526-the-wheel-of-time"
+  },
+  "author": {
+    "name": "Robert Jordan",
+    "birthDate": "1948-10-17",
+    "deathDate": "2007-09-16",
+    "genres": [
+      "Fantasy"
+    ]
   }
 }
 ```
