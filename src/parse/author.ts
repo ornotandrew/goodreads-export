@@ -26,7 +26,7 @@ function getTable(html: string): Record<string, string> {
   return table
 }
 
-export function author(html: string): Author {
+export function author(html: string): Omit<Author, 'url'> {
   const ast = cheerio.load(html)
   const name = ast('h1.authorName span[itemprop="name"]').text().trim()
 

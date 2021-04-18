@@ -1,14 +1,20 @@
-export interface Book {
+export interface RawBook {
+  url: string
   title: string
-  authorUrl: string
   description: string
+  authorUrl: string
   imageUrl: string
   isbn: number
   pageCount: number
-  seriesUrl?: string
+  positionInSeries?: number
+  series?: {
+    url: string
+    name: string
+  }
 }
 
-export type Author = {
+export interface Author {
+  url: string
   name: string
   birthDate: string
   deathDate?: string
@@ -17,7 +23,20 @@ export type Author = {
   twitterUrl?: string
 }
 
-export type BookWithAuthor = Book & { author: Author }
+export interface Series {
+  url: string
+  name: string
+  works: {
+    primary: number
+    total: number
+  }
+}
+
+export type Book = Omit<RawBook, 'authorUrl' | 'series'> & {
+  author: Author
+  positionInSeries?: number
+  series?: Series
+}
 
 export interface ReviewTimeline {
   shelved: string
@@ -35,6 +54,4 @@ export interface Review {
   timeline: ReviewTimeline
 }
 
-export interface Extract extends Review {
-  book: BookWithAuthor
-}
+export type Extract = Omit<Review, 'bookUrl'> & { book: Book }
