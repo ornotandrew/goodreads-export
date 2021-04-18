@@ -11,7 +11,11 @@ describe('part of a series', () => {
     imageUrl: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1480096417i/35231.jpg',
     isbn: 9780812513752,
     pageCount: 1011,
-    seriesUrl: 'https://www.goodreads.com/series/41526-the-wheel-of-time'
+    positionInSeries: 6,
+    series: {
+      url: 'https://www.goodreads.com/series/41526-the-wheel-of-time',
+      name: 'The Wheel of Time'
+    }
   }))
 
   test('Scars', async () => expect(parse.book(await getGenericUrl(urls.scars))).toEqual({
@@ -21,7 +25,11 @@ describe('part of a series', () => {
     imageUrl: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1376783944i/18143803.jpg',
     isbn: 9781849706049,
     pageCount: 416,
-    seriesUrl: 'https://www.goodreads.com/series/40983-the-horus-heresy'
+    positionInSeries: 28,
+    series: {
+      url: 'https://www.goodreads.com/series/40983-the-horus-heresy',
+      name: 'The Horus Heresy'
+    }
   }))
 })
 

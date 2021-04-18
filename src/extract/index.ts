@@ -29,8 +29,9 @@ async function extract(listId: number, multibar: cliProgress.MultiBar): Promise<
     bars.authorInfo.increment()
 
     let series = null
-    if (book.seriesUrl) {
-      series = await getSeriesInfo(book.seriesUrl)
+    if (book.series) {
+      series = await getSeriesInfo(book.series.url)
+      series.name = book.series.name
     }
     bars.seriesInfo.increment()
 

@@ -6,7 +6,11 @@ export interface RawBook {
   imageUrl: string
   isbn: number
   pageCount: number
-  seriesUrl?: string
+  positionInSeries?: number
+  series?: {
+    url: string
+    name: string
+  }
 }
 
 export interface Author {
@@ -28,8 +32,9 @@ export interface Series {
   }
 }
 
-export type Book = Omit<RawBook, 'authorUrl' | 'seriesUrl'> & {
+export type Book = Omit<RawBook, 'authorUrl' | 'series'> & {
   author: Author
+  positionInSeries?: number
   series?: Series
 }
 

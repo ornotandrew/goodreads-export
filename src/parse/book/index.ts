@@ -2,6 +2,14 @@ import getMetaValues from './meta'
 import getDataBoxValues from './dataBox'
 import { RawBook } from '../../types'
 
+type SeriesExtension = {
+  positionInSeries?: number,
+  series?: {
+    url: string
+    name: string
+  }
+}
+
 export function book(html: string): Omit<RawBook, 'url'> {
   // Goodreads adds some of the more important fields as <meta> tags at the top
   // of the page - grab as many of these as we can. There is a "title" field
@@ -12,10 +20,24 @@ export function book(html: string): Omit<RawBook, 'url'> {
 
   // There are more fields in a pseudo-table underneath the "Get a copy"
   // section.
-  const dataBoxValues = getDataBoxValues(html)
+  let dataBoxValues = getDataBoxValues(html)
+
+  // The 'series' property from the dataBox can be further broken down
+  let seriesExtension: SeriesExtension = {}
+  if (dataBoxValues.series) {
+    const parts = dataBoxValues.series.name.split('#')
+    seriesExtension = {
+      positionInSeries: parseInt(parts[parts.length - 1]),
+      series: {
+        url: dataBoxValues.series.url,
+        name: parts.slice(0, parts.length - 1).join('#').trim(),
+      }
+    }
+  }
 
   return {
     ...metaValues,
-    ...dataBoxValues
+    ...dataBoxValues,
+    ...seriesExtension
   }
 }

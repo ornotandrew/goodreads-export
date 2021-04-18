@@ -4,7 +4,7 @@ type Cheerio = ReturnType<typeof cheerio.root>
 
 interface BoxValueConfig {
   [key: string]: {
-    parse: ($: Cheerio) => string,
+    parse: ($: Cheerio) => any,
     name: string
   }
 }
@@ -15,14 +15,21 @@ const boxValueConfig: BoxValueConfig = {
     name: 'title'
   },
   Series: {
-    parse: $ => `https://www.goodreads.com${$.children('a')[0].attribs.href}`,
-    name: 'seriesUrl'
+    parse: $ => ({
+      url: `https://www.goodreads.com${$.children('a')[0].attribs.href}`,
+      name: $.children('a').first().text()
+    }),
+    name: 'series'
   }
 }
 
 export interface DataBoxValues {
   title: string
-  seriesUrl?: string
+  series?: {
+    url: string
+    name: string
+    position?: number
+  }
 }
 
 export default function getDataBoxValues(html: string): DataBoxValues {
