@@ -26,7 +26,13 @@ async function extract(listId: number, multibar: cliProgress.MultiBar): Promise<
     const author = await getAuthorInfo(book.authorUrl)
     bars.authorInfo.increment()
 
-    return { ...review, book: { ...book, author } }
+    let series = null
+    // if (book.seriesUrl) {
+    //   series = await getSeriesInfo(book.seriesUrl)
+    //   bars.seriesInfo.increment()
+    // }
+
+    return { ...review, book: { ...book, author, series } }
   }, reviewIds.map(id => [id]), batchSize)
 
   return results

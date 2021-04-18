@@ -1,8 +1,8 @@
 import getMetaValues from './meta'
 import getDataBoxValues from './dataBox'
-import { Book } from '../../types'
+import { RawBook } from '../../types'
 
-export function book(html: string): Book {
+export function book(html: string): Omit<RawBook, 'url'> {
   // Goodreads adds some of the more important fields as <meta> tags at the top
   // of the page - grab as many of these as we can. There is a "title" field
   // here, but we prefer to get that info from the "bookDataBox" below, since
