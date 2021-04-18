@@ -12,6 +12,7 @@ export const reviewIds = {
 export const bookUrls = {
   lordOfChaos: 'https://www.goodreads.com/book/show/35231.Lord_of_Chaos',
   scars: 'https://www.goodreads.com/book/show/18143803-scars',
+  fellowshipOfTheRing: 'https://www.goodreads.com/book/show/34.The_Fellowship_of_the_Ring',
   '1984': 'https://www.goodreads.com/book/show/3744438-1984',
 }
 
@@ -25,4 +26,5 @@ export const seriesUrls = {
   wheelOfTime: 'https://www.goodreads.com/series/41526-the-wheel-of-time',
   farseerTrilogy: 'https://www.goodreads.com/series/41452-the-farseer-trilogy',
   horusHeresy: 'https://www.goodreads.com/series/40983-the-horus-heresy',
+  lordOfTheRings: 'https://www.goodreads.com/series/66175-the-lord-of-the-rings',
 }

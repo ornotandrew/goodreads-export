@@ -31,6 +31,20 @@ describe('part of a series', () => {
       name: 'The Horus Heresy'
     }
   }))
+
+  test('The Fellowship of the Ring', async () => expect(parse.book(await getGenericUrl(urls.fellowshipOfTheRing))).toEqual({
+    title: 'The Fellowship of the Ring',
+    authorUrl: 'https://www.goodreads.com/author/show/656983.J_R_R_Tolkien',
+    description: 'Alternate Cover Edition ISBN 0618260269 (copyright page ISBN is 0618346252 - different from back cover)  One Ring to rule them all, One R...',
+    imageUrl: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1298411339i/34.jpg',
+    isbn: 9780618346257,
+    pageCount: 398,
+    positionInSeries: 1,
+    series: {
+      url: 'https://www.goodreads.com/series/66175-the-lord-of-the-rings',
+      name: 'The Lord of the Rings'
+    }
+  }))
 })
 
 describe('individual book', () => {
