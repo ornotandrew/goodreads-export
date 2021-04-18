@@ -17,6 +17,8 @@ export type Author = {
   twitterUrl?: string
 }
 
+export type BookWithAuthor = Book & { author: Author }
+
 export interface ReviewTimeline {
   shelved: string
   started?: string
@@ -34,6 +36,5 @@ export interface Review {
 }
 
 export interface Extract extends Review {
-  book: Book
-  author: Author
+  book: BookWithAuthor
 }
