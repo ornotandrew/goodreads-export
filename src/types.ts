@@ -21,11 +21,16 @@ export interface Author {
 
 export interface Series {
   url: string
+  name: string
+  works: {
+    primary: number
+    total: number
+  }
 }
 
 export type Book = Omit<RawBook, 'authorUrl' | 'seriesUrl'> & {
   author: Author
-  series: Series
+  series?: Series
 }
 
 export interface ReviewTimeline {
