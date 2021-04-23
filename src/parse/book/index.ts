@@ -1,3 +1,4 @@
+import cheerio from 'cheerio'
 import getMetaValues from './meta'
 import getDataBoxValues from './dataBox'
 import { RawBook } from '../../types'
@@ -22,6 +23,10 @@ export function book(html: string): Omit<RawBook, 'url'> {
   // section.
   let dataBoxValues = getDataBoxValues(html)
 
+  // In some rare cases, the book title doesn't appear in the DataBox. However,
+  // there is always an element with id=bookTitle.
+  const title = cheerio.load(html)('#bookTitle').text().trim()
+
   // The 'series' property from the dataBox can be further broken down
   let seriesExtension: SeriesExtension = {}
   if (dataBoxValues.series) {
@@ -36,6 +41,7 @@ export function book(html: string): Omit<RawBook, 'url'> {
   }
 
   return {
+    title,
     ...metaValues,
     ...dataBoxValues,
     ...seriesExtension

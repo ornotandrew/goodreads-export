@@ -10,10 +10,6 @@ interface BoxValueConfig {
 }
 
 const boxValueConfig: BoxValueConfig = {
-  'Original Title': {
-    parse: $ => $.text(),
-    name: 'title'
-  },
   Series: {
     parse: $ => ({
       url: `https://www.goodreads.com${$.children('a')[0].attribs.href}`,
@@ -24,7 +20,6 @@ const boxValueConfig: BoxValueConfig = {
 }
 
 export interface DataBoxValues {
-  title: string
   series?: {
     url: string
     name: string
