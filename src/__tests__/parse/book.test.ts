@@ -32,6 +32,34 @@ describe('part of a series', () => {
     }
   }))
 
+  test('Fear to Tread', async () => expect(parse.book(await getGenericUrl(urls.fearToTread))).toEqual({
+    title: 'Fear to Tread',
+    authorUrl: 'https://www.goodreads.com/author/show/32643.James_Swallow',
+    description: 'Since the earliest days of the Great Crusade, Sanguinius – angelic primarch of the IXth Legion – was ever among the closest and most loya...',
+    imageUrl: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1332287096i/13259647.jpg',
+    isbn: 9781849701969,
+    pageCount: 508,
+    positionInSeries: 21,
+    series: {
+      url: 'https://www.goodreads.com/series/40983-the-horus-heresy',
+      name: 'The Horus Heresy'
+    }
+  }))
+
+  test('Deliverance Lost', async () => expect(parse.book(await getGenericUrl(urls.deliveranceLost))).toEqual({
+    title: 'Deliverance Lost',
+    authorUrl: 'https://www.goodreads.com/author/show/46269.Gav_Thorpe',
+    description: 'As the Horus Heresy divides the Imperium, Corax and his few remaining Raven Guard escape the massacre at Isstvan V. Tending to their woun...',
+    imageUrl: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1332438857i/10838911.jpg',
+    isbn: 9781849700610,
+    pageCount: 480,
+    positionInSeries: 18,
+    series: {
+      url: 'https://www.goodreads.com/series/40983-the-horus-heresy',
+      name: 'The Horus Heresy'
+    }
+  }), 30 * 1000)
+
   test('The Fellowship of the Ring', async () => expect(parse.book(await getGenericUrl(urls.fellowshipOfTheRing))).toEqual({
     title: 'The Fellowship of the Ring',
     authorUrl: 'https://www.goodreads.com/author/show/656983.J_R_R_Tolkien',
@@ -49,7 +77,7 @@ describe('part of a series', () => {
 
 describe('individual book', () => {
   test('1984', async () => expect(parse.book(await getGenericUrl(urls['1984']))).toEqual({
-    title: 'Nineteen Eighty-Four',
+    title: '1984',
     authorUrl: 'https://www.goodreads.com/author/show/3706.George_Orwell',
     description: '\'It was a bright cold day in April, and the clocks were striking thirteen.\'  Winston Smith works for the Ministry of truth in London, chi...',
     imageUrl: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327144697i/3744438.jpg',
