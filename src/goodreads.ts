@@ -1,5 +1,8 @@
 /* istanbul ignore file */
 import axios from 'axios'
+import axiosRetry from 'axios-retry'
+
+axiosRetry(axios, { retries: 3 })
 
 export const getListPage = (listId: number, page: number) => axios.get(
   `https://www.goodreads.com/review/list/${listId}?page=${page}`,

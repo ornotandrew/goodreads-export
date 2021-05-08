@@ -20,7 +20,6 @@ type MetaLookup = {
 }
 
 export interface MetaValues {
-  description: string
   imageUrl: string
   authorUrl: string
   isbn: number
@@ -29,9 +28,6 @@ export interface MetaValues {
 
 export default function getMetaValues(html: string): MetaValues {
   const metaLookup: MetaLookup = {
-    description: {
-      search: { property: 'og:description' }
-    },
     imageUrl: {
       search: { property: 'og:image' },
       transform: value => {
