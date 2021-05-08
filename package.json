@@ -28,15 +28,23 @@
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
-      ["@semantic-release/git", {
-        "assets": ["package.json", "package-lock.json", "README.md"]
-      }],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json",
+            "package-lock.json",
+            "README.md"
+          ]
+        }
+      ],
       "@semantic-release/npm",
       "@semantic-release/github"
     ]
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "axios-retry": "^3.1.9",
     "chalk": "^4.1.0",
     "cheerio": "^1.0.0-rc.5",
     "cli-progress": "^3.9.0",
