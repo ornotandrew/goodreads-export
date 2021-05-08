@@ -7,7 +7,17 @@ describe('part of a series', () => {
   test('Lord of Chaos', async () => expect(parse.book(await getGenericUrl(urls.lordOfChaos))).toEqual({
     title: 'Lord of Chaos',
     authorUrl: 'https://www.goodreads.com/author/show/6252.Robert_Jordan',
-    description: 'In this sequel to the phenomenal New York Times bestseller The Fires of Heaven, we plunge again into Robert Jordan\'s extraordinarily rich, totally unforgettable world:On the slopes of Shayol Ghul, the Myrddraal swords are forged, and the sky is not the sky of this world ...In Salidar the White Tower in exile prepares an embassy to Caemlyn, where Rand Al\'Thor, the Dragon Reborn, holds the throne -- and where an unexpected visitor may change the world ...In Emond\'s Field, Perrin Goldeneyes, Lord of the Two Rivers, feels the pull of ta\'veren to ta\'veren and prepares to march ...Morgase of Caemlyn finds a most unexpected, and quite unwelcome, ally ...And south lies Illian, where Sammael holds sway ...',
+    description: `In this sequel to the phenomenal New York Times bestseller The Fires of Heaven, we plunge again into Robert Jordan's extraordinarily rich, totally unforgettable world:
+
+On the slopes of Shayol Ghul, the Myrddraal swords are forged, and the sky is not the sky of this world ...
+
+In Salidar the White Tower in exile prepares an embassy to Caemlyn, where Rand Al'Thor, the Dragon Reborn, holds the throne -- and where an unexpected visitor may change the world ...
+
+In Emond's Field, Perrin Goldeneyes, Lord of the Two Rivers, feels the pull of ta'veren to ta'veren and prepares to march ...
+
+Morgase of Caemlyn finds a most unexpected, and quite unwelcome, ally ...
+
+And south lies Illian, where Sammael holds sway ...`,
     imageUrl: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1480096417i/35231.jpg',
     isbn: 9780812513752,
     pageCount: 1011,
@@ -21,7 +31,9 @@ describe('part of a series', () => {
   test('Scars', async () => expect(parse.book(await getGenericUrl(urls.scars))).toEqual({
     title: 'Scars',
     authorUrl: 'https://www.goodreads.com/author/show/1001882.Chris_Wraight',
-    description: 'Jaghatai Khan and his White Scars Legion must choose - the Emperor or Horus?Fresh from their conquest of Chondax and the discovery of Horus’s rebellion, Jaghatai Khan’s warriors stand divided. Long considered one of the less trustworthy Legions, many of the White Scars claim to owe their loyalty exclusively to Terra, and others still to the Warmaster and his warrior lodges. But when a distress call from Leman Russ of the Space Wolves brings the wrath of the Alpha Legion to Chondax, the Khan’s hand is forced and the decision must be made – in the great war for the Imperium, will he side with the Emperor or Horus?',
+    description: `Jaghatai Khan and his White Scars Legion must choose - the Emperor or Horus?
+
+Fresh from their conquest of Chondax and the discovery of Horus’s rebellion, Jaghatai Khan’s warriors stand divided. Long considered one of the less trustworthy Legions, many of the White Scars claim to owe their loyalty exclusively to Terra, and others still to the Warmaster and his warrior lodges. But when a distress call from Leman Russ of the Space Wolves brings the wrath of the Alpha Legion to Chondax, the Khan’s hand is forced and the decision must be made – in the great war for the Imperium, will he side with the Emperor or Horus?`,
     imageUrl: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1376783944i/18143803.jpg',
     isbn: 9781849706049,
     pageCount: 416,
@@ -63,7 +75,14 @@ describe('part of a series', () => {
   test('The Fellowship of the Ring', async () => expect(parse.book(await getGenericUrl(urls.fellowshipOfTheRing))).toEqual({
     title: 'The Fellowship of the Ring',
     authorUrl: 'https://www.goodreads.com/author/show/656983.J_R_R_Tolkien',
-    description: 'Alternate Cover Edition ISBN 0618260269 (copyright page ISBN is 0618346252 - different from back cover)One Ring to rule them all, One Ring to find them, One Ring to bring them all and in the darkeness bind themIn ancient times the Rings of Power were crafted by the Elven-smiths, and Sauron, The Dark Lord, forged the One Ring, filling it with his own power so that he could rule all others. But the One Ring was taken from him, and though he sought it throughout Middle-earth, it remained lost to him. After many ages it fell into the hands of Bilbo Baggins, as told in The Hobbit.In a sleepy village in the Shire, young Frodo Baggins finds himself faced with an immense task, as his elderly cousin Bilbo entrusts the Ring to his care. Frodo must leave his home and make a perilous journey across Middle-earth to the Cracks of Doom, there to destroy the Ring and foil the Dark Lord in his evil purpose.--back cover',
+    description: `Alternate Cover Edition ISBN 0618260269 (copyright page ISBN is 0618346252 - different from back cover)
+
+One Ring to rule them all, One Ring to find them, One Ring to bring them all and in the darkeness bind them
+
+In ancient times the Rings of Power were crafted by the Elven-smiths, and Sauron, The Dark Lord, forged the One Ring, filling it with his own power so that he could rule all others. But the One Ring was taken from him, and though he sought it throughout Middle-earth, it remained lost to him. After many ages it fell into the hands of Bilbo Baggins, as told in The Hobbit.
+
+In a sleepy village in the Shire, young Frodo Baggins finds himself faced with an immense task, as his elderly cousin Bilbo entrusts the Ring to his care. Frodo must leave his home and make a perilous journey across Middle-earth to the Cracks of Doom, there to destroy the Ring and foil the Dark Lord in his evil purpose.
+--back cover`,
     imageUrl: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1298411339i/34.jpg',
     isbn: 9780618346257,
     pageCount: 398,
@@ -79,7 +98,11 @@ describe('individual book', () => {
   test('1984', async () => expect(parse.book(await getGenericUrl(urls['1984']))).toEqual({
     title: '1984',
     authorUrl: 'https://www.goodreads.com/author/show/3706.George_Orwell',
-    description: '\'It was a bright cold day in April, and the clocks were striking thirteen.\'Winston Smith works for the Ministry of truth in London, chief city of Airstrip One. Big Brother stares out from every poster, the Thought Police uncover every act of betrayal. When Winston finds love with Julia, he discovers that life does not have to be dull and deadening, and awakens to new possibilities. Despite the police helicopters that hover and circle overhead, Winston and Julia begin to question the Party; they are drawn towards conspiracy. Yet Big Brother will not tolerate dissent - even in the mind. For those with original thoughts they invented Room 101 . . . Nineteen Eighty-Four is George Orwell\'s terrifying vision of a totalitarian future in which everything and everyone is slave to a tyrannical regime.',
+    description: `'It was a bright cold day in April, and the clocks were striking thirteen.'
+
+Winston Smith works for the Ministry of truth in London, chief city of Airstrip One. Big Brother stares out from every poster, the Thought Police uncover every act of betrayal. When Winston finds love with Julia, he discovers that life does not have to be dull and deadening, and awakens to new possibilities. Despite the police helicopters that hover and circle overhead, Winston and Julia begin to question the Party; they are drawn towards conspiracy. Yet Big Brother will not tolerate dissent - even in the mind. For those with original thoughts they invented Room 101 . . . 
+
+Nineteen Eighty-Four is George Orwell's terrifying vision of a totalitarian future in which everything and everyone is slave to a tyrannical regime.`,
     imageUrl: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327144697i/3744438.jpg',
     isbn: 9780141036144,
     pageCount: 311

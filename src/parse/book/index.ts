@@ -34,7 +34,9 @@ export function book(html: string): Omit<RawBook, 'url'> {
 
   // The description appears in the meta section, but only the first 140 chars.
   // Grab the longer text instead.
-  const description = ast('#description > span').last().text().trim()
+  const descriptionElement = ast('#description > span').last()
+  descriptionElement.find('br').replaceWith('\n')
+  const description = descriptionElement.text().trim()
 
   // The 'series' property from the dataBox can be further broken down
   let seriesExtension: SeriesExtension = {}
