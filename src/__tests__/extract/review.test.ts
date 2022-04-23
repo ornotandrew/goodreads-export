@@ -1,21 +1,25 @@
-import { getAllReviewIds, getReviewInfo } from '../../extract/review'
-import * as goodreads from '../../goodreads'
-import { reviewIds as ids } from '../constants'
-import cliProgress from 'cli-progress'
+import { getAllReviewIds, getReviewInfo } from '../../extract/review';
+import * as goodreads from '../../goodreads';
+import { reviewIds as ids } from '../constants';
+import cliProgress from 'cli-progress';
 
 describe('getAllReviewids', () => {
   test('gets all the review ids.reviews.from all pages', async () => {
-    const dummyMultibar = new cliProgress.MultiBar({ noTTYOutput: true, format: '', clearOnComplete: true })
-    const actual = await getAllReviewIds(ids.list, dummyMultibar)
-    dummyMultibar.stop()
-    expect(goodreads.getListPage as jest.Mock).toHaveBeenCalledTimes(5)
-    expect(actual.length).toEqual(131)
-  })
-})
+    const dummyMultibar = new cliProgress.MultiBar({
+      noTTYOutput: true,
+      format: '',
+      clearOnComplete: true,
+    });
+    const actual = await getAllReviewIds(ids.list, dummyMultibar);
+    dummyMultibar.stop();
+    expect(goodreads.getListPage as jest.Mock).toHaveBeenCalledTimes(5);
+    expect(actual.length).toEqual(131);
+  });
+});
 
 describe('getReviewInfo', () => {
   test('basic', async () => {
-    const actual = await getReviewInfo(ids.reviews.basic)
+    const actual = await getReviewInfo(ids.reviews.basic);
     expect(actual).toEqual({
       reviewId: ids.reviews.basic,
       bookUrl: 'https://www.goodreads.com/book/show/22016392-assassin-s-quest',
@@ -26,13 +30,13 @@ describe('getReviewInfo', () => {
         progress: [
           { percent: 0, date: '2019-09-30' },
           { percent: 100, date: '2019-11-01' },
-        ]
-      }
-    })
-  })
+        ],
+      },
+    });
+  });
 
   test('with progress', async () => {
-    const actual = await getReviewInfo(ids.reviews.progress)
+    const actual = await getReviewInfo(ids.reviews.progress);
     expect(actual).toEqual({
       reviewId: ids.reviews.progress,
       bookUrl: 'https://www.goodreads.com/book/show/35231.Lord_of_Chaos',
@@ -45,13 +49,13 @@ describe('getReviewInfo', () => {
           { percent: 27, date: '2020-11-12' },
           { percent: 89, date: '2020-12-15' },
           { percent: 100, date: '2020-12-22' },
-        ]
-      }
-    })
-  })
+        ],
+      },
+    });
+  });
 
   test('with progress as page number', async () => {
-    const actual = await getReviewInfo(ids.reviews.pageNumberProgress)
+    const actual = await getReviewInfo(ids.reviews.pageNumberProgress);
     expect(actual).toEqual({
       reviewId: ids.reviews.pageNumberProgress,
       bookUrl: 'https://www.goodreads.com/book/show/13890.A_Crown_of_Swords',
@@ -63,13 +67,13 @@ describe('getReviewInfo', () => {
           { percent: 0, date: '2020-12-22' },
           { percent: 37, date: '2021-01-08' },
           { percent: 60, date: '2021-01-30' },
-        ]
-      }
-    })
-  })
+        ],
+      },
+    });
+  });
 
   test('with "shelved as" update', async () => {
-    const actual = await getReviewInfo(ids.reviews.shelvedAs)
+    const actual = await getReviewInfo(ids.reviews.shelvedAs);
     expect(actual).toEqual({
       reviewId: ids.reviews.shelvedAs,
       bookUrl: 'https://www.goodreads.com/book/show/22016387-royal-assassin',
@@ -80,13 +84,13 @@ describe('getReviewInfo', () => {
         progress: [
           { percent: 0, date: '2019-08-15' },
           { percent: 100, date: '2019-09-30' },
-        ]
-      }
-    })
-  })
+        ],
+      },
+    });
+  });
 
   test('without a start date', async () => {
-    const actual = await getReviewInfo(ids.reviews.withoutStartDate)
+    const actual = await getReviewInfo(ids.reviews.withoutStartDate);
     expect(actual).toEqual({
       reviewId: ids.reviews.withoutStartDate,
       bookUrl: 'https://www.goodreads.com/book/show/7664041-inheritance',
@@ -94,10 +98,8 @@ describe('getReviewInfo', () => {
         shelved: '2020-07-03',
         started: null,
         finished: '2009-01-01',
-        progress: [
-          { percent: 100, date: '2009-01-01' },
-        ]
-      }
-    })
-  })
-})
+        progress: [{ percent: 100, date: '2009-01-01' }],
+      },
+    });
+  });
+});

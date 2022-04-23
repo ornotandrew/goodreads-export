@@ -1,14 +1,16 @@
 module.exports = {
   env: {
-    node: true
+    node: true,
   },
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
+  extends: ['prettier'],
   rules: {
-    '@typescript-eslint/semi': ['error', 'never'],
-    'max-len': ['warn', { code: 120 }],
-    'quotes': ['error', 'single'],
-    'object-curly-spacing': ['error', 'always']
+    'max-len': ['warn', { code: 100 }],
+    quotes: ['error', 'single'],
+    'object-curly-spacing': ['error', 'always'],
   },
-  overrides: [{ files: ['**/*.ts'] }]
+
+  overrides: [{ files: ['**/*.ts'] }],
+
 }

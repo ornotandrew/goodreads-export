@@ -1,39 +1,38 @@
-import fs from 'fs'
-import path from 'path'
+import fs from 'fs';
+import path from 'path';
 
-const cacheFolder = path.resolve(__dirname, '.cache')
+const cacheFolder = path.resolve(__dirname, '.cache');
 
-jest.mock('../goodreads')
+jest.mock('../goodreads');
 
 const goodreads = {
   mock: jest.requireMock('../goodreads'),
-  actual: jest.requireActual('../goodreads')
-}
+  actual: jest.requireActual('../goodreads'),
+};
 
-type GoodreadsFn = (...args: any[]) => Promise<string>
+type GoodreadsFn = (...args: any[]) => Promise<string>;
 
 function withCache(fnName: string, fn: GoodreadsFn): GoodreadsFn {
   return async (...args: any[]): Promise<string> => {
-    const filename = `${fnName}_${args.join('_')}`
-      .replace(/[^A-Za-z0-9._-]/g, '_') // make sure the filename is valid
-    const cachePath = path.resolve(cacheFolder, filename)
+    const filename = `${fnName}_${args.join('_')}`.replace(/[^A-Za-z0-9._-]/g, '_'); // make sure the filename is valid
+    const cachePath = path.resolve(cacheFolder, filename);
     if (fs.existsSync(cachePath)) {
-      return fs.readFileSync(cachePath, 'utf8').toString()
+      return fs.readFileSync(cachePath, 'utf8').toString();
     }
-    
-    const result = await fn(...args)
-    fs.writeFileSync(cachePath, result)
 
-    return result
-  }
+    const result = await fn(...args);
+    fs.writeFileSync(cachePath, result);
+
+    return result;
+  };
 }
 
 for (let fnName in goodreads.actual) {
-  goodreads.mock[fnName].mockImplementation(withCache(fnName, goodreads.actual[fnName]))
+  goodreads.mock[fnName].mockImplementation(withCache(fnName, goodreads.actual[fnName]));
 }
 
 afterEach(() => {
   for (let fnName in goodreads.actual) {
-    goodreads.mock[fnName].mockClear()
+    goodreads.mock[fnName].mockClear();
   }
-})
+});
