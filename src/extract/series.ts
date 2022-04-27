@@ -1,13 +1,13 @@
 import { getGenericUrl } from '../goodreads';
 import * as parse from '../parse/series';
-import { RawBook, RawSeries } from '../types';
-import { indexBy } from '../util';
+import { RawBook, Series } from '../types';
+import { indexBy } from '../util/transform';
 
 // A note on Series.name: The series page seems to often have worse information
 // than what appears on the book page. Therefore, the name is populated from
 // the book extration, while this function merely collects the number of books
 // in the series.
-type RawSeriesWithoutName = Omit<RawSeries, 'name'>;
+type RawSeriesWithoutName = Omit<Series, 'name'>;
 
 export const getSeriesInfo = async (url: string): Promise<RawSeriesWithoutName> => ({
   url,
@@ -17,7 +17,7 @@ export const getSeriesInfo = async (url: string): Promise<RawSeriesWithoutName> 
 export const attachSeriesName = (
   seriesByUrl: Record<string, RawSeriesWithoutName>,
   booksByUrl: Record<string, RawBook>
-): Record<string, RawSeries> => {
+): Record<string, Series> => {
   const booksBySeriesUrl = indexBy(
     Object.values(booksByUrl).filter((x) => !!x.series),
     (book) => book.series!.url
@@ -28,5 +28,5 @@ export const attachSeriesName = (
     name: booksBySeriesUrl[series.url].series!.name,
   }));
 
-  return indexBy(withName, series => series.url)
+  return indexBy(withName, (series) => series.url);
 };

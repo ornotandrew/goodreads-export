@@ -29,7 +29,7 @@ export interface RawBook {
   };
 }
 
-export interface RawAuthor {
+export interface Author {
   url: string;
   name: string;
   birthDate: string;
@@ -39,7 +39,7 @@ export interface RawAuthor {
   twitterUrl?: string;
 }
 
-export interface RawSeries {
+export interface Series {
   url: string;
   name: string;
   works: {
@@ -48,15 +48,22 @@ export interface RawSeries {
   };
 }
 
+// Designed for data storage. Items are deduplicated and indexed at the
+// top-level.
 export type Extract = {
   reviews: RawReview[];
   booksByUrl: Record<string, RawBook>;
-  authorsByUrl: Record<string, RawAuthor>;
-  seriesByUrl: Record<string, RawSeries>;
+  authorsByUrl: Record<string, Author>;
+  seriesByUrl: Record<string, Series>;
 };
 
-// export type Book = Omit<RawBook, 'authorUrl' | 'series'> & {
-//   author: Author;
-//   positionInSeries?: number;
-//   series?: Series;
-// };
+// The types below are designed for ease-of use. This library provides
+// functions to convert an Extract to these types.
+export type Book = Omit<RawBook, 'authorUrl' | 'seriesUrl'> & {
+  author: Author;
+  series?: Series;
+};
+
+export type Review = Omit<RawReview, 'bookUrl'> & {
+  book: Book;
+};

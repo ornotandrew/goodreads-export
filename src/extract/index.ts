@@ -3,8 +3,10 @@ import { getBookInfo } from './book';
 import { getAuthorInfo } from './author';
 import { attachSeriesName, getSeriesInfo } from './series';
 import cliProgress from 'cli-progress';
-import { barOptions, batchedPromiseAll, indexBy, mostRecentlyStarted, unique } from '../util';
 import { Extract } from '../types';
+import { indexBy, mostRecentlyStarted, unique } from '../util/transform';
+import { batchedPromiseAll } from '../util/dataFetching';
+import { barOptions } from '../util/cli';
 
 const batchSize = 30;
 
@@ -37,9 +39,9 @@ async function extract(listId: number, multibar: cliProgress.MultiBar): Promise<
   // Create the bars up here so that they are all visible from the outset
   const bars = {
     reviewInfo: multibar.create(reviewIds.length, 0, barOptions('Reviews', '⭐️')),
-    bookInfo: multibar.create(0, 0, barOptions('Books', '📕')),
-    authorInfo: multibar.create(0, 0, barOptions('Authors', '👩')),
-    seriesInfo: multibar.create(0, 0, barOptions('Series', '📚')),
+    bookInfo: multibar.create(1, 0, barOptions('Books', '📕')),
+    authorInfo: multibar.create(1, 0, barOptions('Authors', '👩')),
+    seriesInfo: multibar.create(1, 0, barOptions('Series', '📚')),
   };
 
   // NOTE: There is no memoization for the function calls below. It's the
@@ -73,7 +75,7 @@ async function extract(listId: number, multibar: cliProgress.MultiBar): Promise<
     getSeriesInfo,
     unique(Object.values(booksByUrl), (book) => book.series?.url).filter((x) => !!x),
     url,
-    bars.authorInfo
+    bars.seriesInfo
   );
 
   return {

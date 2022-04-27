@@ -1,8 +1,8 @@
 import { getListPage, getReview } from '../goodreads';
 import * as parse from '../parse/review';
 import cliProgress from 'cli-progress';
-import { barOptions } from '../util';
 import { RawReview, ReviewTimeline } from '../types';
+import { barOptions } from '../util/cli';
 
 export const getAllReviewIds = async (
   listId: number,
