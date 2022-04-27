@@ -14,7 +14,7 @@ specify your [list ID](#usage) and a JSON export will be generated.
 
 ## Output
 
-A list of [Extract](src/types.ts) objects.
+An [Extract](src/types.ts) object. For a full connected "graph" of reviews and metadata, see [reviewsFromExtract](src/util/transform.ts).
 
 ## Installation
 
