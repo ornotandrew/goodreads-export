@@ -1,5 +1,6 @@
 import { stderr as chalk } from 'chalk';
 import cliProgress from 'cli-progress';
+import { RawReview } from './types';
 
 export const multibar = new cliProgress.MultiBar(
   {
@@ -30,17 +31,6 @@ export const exit = (error?: Error) => {
 
 process.on('SIGINT', () => exit());
 
-// caches based on the first argument only!
-export function asyncMemo<A, R>(
-  fn: (arg: A, ...rest: any[]) => Promise<R>
-): (arg: A, ...rest: any[]) => Promise<R> {
-  const cache: { [key: string]: R } = {};
-  return (arg: A, ...rest: any[]) => {
-    const key = String(arg);
-    return cache.hasOwnProperty(key) ? Promise.resolve(cache[key]) : fn(arg, ...rest);
-  };
-}
-
 export async function batchedPromiseAll<A, R>(
   fn: (...args: A[]) => Promise<R>,
   args: A[][],
@@ -55,3 +45,35 @@ export async function batchedPromiseAll<A, R>(
   }
   return results;
 }
+
+export function indexBy<T, K extends string | number>(
+  items: Array<T>,
+  getIndex: (item: T) => K
+): Record<K, T> {
+  return items.reduce((acc, item) => ({ ...acc, [getIndex(item)]: item }), {} as Record<K, T>);
+}
+
+export const unique = <T, K>(items: T[], getIndex: (item: T) => K) => [
+  ...new Set(items.map(getIndex)),
+];
+
+export const mostRecentlyStarted = (a: RawReview, b: RawReview) => {
+  // If neither of the books have been started, compare their shelved dates
+  if (!a.timeline.started && !b.timeline.started) {
+    return a.timeline.shelved.localeCompare(b.timeline.shelved);
+  }
+
+  // Otherwise, started books always appear before "un"started books
+
+  if (!a.timeline.started && b.timeline.started) {
+    return 1;
+  }
+
+  if (a.timeline.started && !b.timeline.started) {
+    return -1;
+  }
+
+  // Started books are ordered by most-recently-started first
+
+  return a.timeline.shelved.localeCompare(b.timeline.shelved);
+};

@@ -1,3 +1,19 @@
+export interface ReviewTimeline {
+  shelved: string;
+  started?: string;
+  finished?: string;
+  progress: {
+    percent: number;
+    date: string;
+  }[];
+}
+
+export interface RawReview {
+  reviewId: number;
+  bookUrl: string;
+  timeline: ReviewTimeline;
+}
+
 export interface RawBook {
   url: string;
   title: string;
@@ -13,7 +29,7 @@ export interface RawBook {
   };
 }
 
-export interface Author {
+export interface RawAuthor {
   url: string;
   name: string;
   birthDate: string;
@@ -23,7 +39,7 @@ export interface Author {
   twitterUrl?: string;
 }
 
-export interface Series {
+export interface RawSeries {
   url: string;
   name: string;
   works: {
@@ -32,26 +48,15 @@ export interface Series {
   };
 }
 
-export type Book = Omit<RawBook, 'authorUrl' | 'series'> & {
-  author: Author;
-  positionInSeries?: number;
-  series?: Series;
+export type Extract = {
+  reviews: RawReview[];
+  booksByUrl: Record<string, RawBook>;
+  authorsByUrl: Record<string, RawAuthor>;
+  seriesByUrl: Record<string, RawSeries>;
 };
 
-export interface ReviewTimeline {
-  shelved: string;
-  started?: string;
-  finished?: string;
-  progress: {
-    percent: number;
-    date: string;
-  }[];
-}
-
-export interface Review {
-  reviewId: number;
-  bookUrl: string;
-  timeline: ReviewTimeline;
-}
-
-export type Extract = Omit<Review, 'bookUrl'> & { book: Book };
+// export type Book = Omit<RawBook, 'authorUrl' | 'series'> & {
+//   author: Author;
+//   positionInSeries?: number;
+//   series?: Series;
+// };

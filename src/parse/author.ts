@@ -1,6 +1,6 @@
 import cheerio from 'cheerio';
 import { DateTime } from 'luxon';
-import { Author } from '../types';
+import { RawAuthor } from '../types';
 
 // TODO: just pass the AST in directly (once cheerio exports the correct type)
 function getTable(html: string): Record<string, string> {
@@ -26,7 +26,7 @@ function getTable(html: string): Record<string, string> {
   return table;
 }
 
-export function author(html: string): Omit<Author, 'url'> {
+export function author(html: string): Omit<RawAuthor, 'url'> {
   const ast = cheerio.load(html);
   const name = ast('h1.authorName span[itemprop="name"]').text().trim();
 

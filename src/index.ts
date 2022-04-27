@@ -12,10 +12,12 @@ async function run(listIdString: string) {
   }
 
   try {
-    const exports = await extract(listId, multibar);
+    const result = await extract(listId, multibar);
     multibar.stop();
-    console.error(`${chalk.green('Done')}. Extracted ${chalk.bold(exports.length)} reviews.`);
-    console.log(JSON.stringify(exports, null, 2));
+    console.error(
+      `${chalk.green('Done')}. Extracted ${chalk.bold(result.reviews.length)} reviews.`
+    );
+    console.log(JSON.stringify(result, null, 2));
   } catch (e) {
     exit(e);
   }
