@@ -166,6 +166,41 @@ In a sleepy village in the Shire, young Frodo Baggins finds himself faced with a
         name: 'The Lord of the Rings',
       },
     }));
+
+  test('Harry Potter and the Half Blood Price', async () => {
+    expect(parse.book(await getGenericUrl(urls.harryPotterAndTheHalfBloodPrince))).toEqual({
+      title: 'Harry Potter and the Half-Blood Prince',
+      description: `The war against Voldemort is not going well: even Muggle governments are noticing. Ron scans the obituary pages of The Daily Prophet looking for familiar names. Dumbledore is absent from Hogwarts for long stretches of time, and the Order of the Phoenix has already suffered losses. 
+
+And yet …
+
+As in all wars, life goes on. Sixth-year students learn to Apparate, and lose a few eyebrows in the process. The Weasley twins expand their business. Teenagers flirt and fight and fall in love. Classes are never straightforward, though Harry receives some extraordinary help from the mysterious Half-Blood Prince.
+
+So it's the home front that takes center stage in the multilayered sixth installment of the story of Harry Potter. Here at Hogwarts, Harry will search for the full and complex story of the boy who became Lord Voldemort - and thereby find what may be his only vulnerability.`,
+      imageUrl:
+        'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1567294600i/49852.jpg',
+      authorUrl: 'https://www.goodreads.com/author/show/1077326.J_K_Rowling',
+      isbn: null,
+      pageCount: 652,
+      series: {
+        url: 'https://www.goodreads.com/series/45175-harry-potter',
+        name: 'Harry Potter',
+      },
+      positionInSeries: 6,
+      genreHierarchy: [
+        ['Fantasy'],
+        ['Young Adult'],
+        ['Fiction'],
+        ['Fantasy', 'Magic'],
+        ['Childrens'],
+        ['Adventure'],
+        ['Audiobook'],
+        ['Childrens', 'Middle Grade'],
+        ['Classics'],
+        ['Science Fiction Fantasy'],
+      ],
+    });
+  });
 });
 
 describe('individual book', () => {

@@ -20,7 +20,7 @@ export interface RawBook {
   description: string;
   authorUrl: string;
   imageUrl: string;
-  isbn: number;
+  isbn: number | null;
   pageCount: number;
   genreHierarchy: string[][]; // genres appear in order of importance
   positionInSeries?: number;

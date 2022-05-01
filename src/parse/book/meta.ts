@@ -22,7 +22,7 @@ type MetaLookup = {
 export interface MetaValues {
   imageUrl: string;
   authorUrl: string;
-  isbn: number;
+  isbn: number | null;
   pageCount: number;
 }
 
@@ -40,7 +40,7 @@ export default function getMetaValues(html: string): MetaValues {
     },
     isbn: {
       search: { property: 'books:isbn' },
-      transform: parseInt,
+      transform: (value) => parseInt(value) || null,
     },
     pageCount: {
       search: { property: 'books:page_count' },
