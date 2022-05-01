@@ -1,8 +1,7 @@
 import extract from './extract.json';
 import { Extract } from '../types';
 
-const foo: Extract = extract;
-console.log(foo)
+extract as Extract;
 
 export const reviewIds = {
   list: 40691268,
