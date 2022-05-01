@@ -1,3 +1,9 @@
+import extract from './extract.json';
+import { Extract } from '../types';
+
+const foo: Extract = extract;
+console.log(foo)
+
 export const reviewIds = {
   list: 40691268,
   reviews: {
@@ -16,7 +22,8 @@ export const bookUrls = {
   deliveranceLost: 'https://www.goodreads.com/book/show/10838911-deliverance-lost',
   fellowshipOfTheRing: 'https://www.goodreads.com/book/show/34.The_Fellowship_of_the_Ring',
   '1984': 'https://www.goodreads.com/book/show/3744438-1984',
-  harryPotterAndTheHalfBloodPrince: 'https://www.goodreads.com/book/show/49852.Harry_Potter_and_the_Half_Blood_Prince'
+  harryPotterAndTheHalfBloodPrince:
+    'https://www.goodreads.com/book/show/49852.Harry_Potter_and_the_Half_Blood_Prince',
 };
 
 export const authorUrls = {

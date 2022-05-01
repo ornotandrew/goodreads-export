@@ -33,8 +33,8 @@ export interface RawBook {
 export interface Author {
   url: string;
   name: string;
-  birthDate: string;
-  deathDate?: string;
+  birthDate: string | null;
+  deathDate: string | null;
   genres?: string[];
   websiteUrl?: string;
   twitterUrl?: string;
