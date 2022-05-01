@@ -23,6 +23,18 @@ And south lies Illian, where Sammael holds sway ...`,
         'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1480096417i/35231.jpg',
       isbn: 9780812513752,
       pageCount: 1011,
+      genreHierarchy: [
+        ['Fantasy'],
+        ['Fiction'],
+        ['Fantasy', 'Epic Fantasy'],
+        ['Science Fiction Fantasy'],
+        ['Fantasy', 'High Fantasy'],
+        ['Adventure'],
+        ['Epic'],
+        ['Audiobook'],
+        ['Young Adult'],
+        ['Fantasy', 'Magic'],
+      ],
       positionInSeries: 6,
       series: {
         url: 'https://www.goodreads.com/series/41526-the-wheel-of-time',
@@ -41,6 +53,17 @@ Fresh from their conquest of Chondax and the discovery of Horus’s rebellion, J
         'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1376783944i/18143803.jpg',
       isbn: 9781849706049,
       pageCount: 416,
+      genreHierarchy: [
+        ['Science Fiction'],
+        ['40k'],
+        ['Fiction'],
+        ['Audiobook'],
+        ['Fantasy'],
+        ['Action'],
+        ['Gaming', 'Gaming Fiction'],
+        ['Science Fiction', 'Military Science Fiction'],
+        ['Science Fiction Fantasy'],
+      ],
       positionInSeries: 28,
       series: {
         url: 'https://www.goodreads.com/series/40983-the-horus-heresy',
@@ -58,6 +81,41 @@ Fresh from their conquest of Chondax and the discovery of Horus’s rebellion, J
         'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1332287096i/13259647.jpg',
       isbn: 9781849701969,
       pageCount: 508,
+       "genreHierarchy": [
+         [
+           "Science Fiction",
+         ],
+         [
+           "40k",
+         ],
+         [
+           "Fiction",
+         ],
+         [
+           "Fantasy",
+         ],
+         [
+           "Audiobook",
+         ],
+         [
+           "Science Fiction",
+           "Military Science Fiction",
+         ],
+         [
+           "War",
+         ],
+         [
+           "Space",
+           "Space Opera",
+         ],
+         [
+           "Novels",
+         ],
+         [
+           "War",
+           "Military Fiction",
+         ],
+       ],
       positionInSeries: 21,
       series: {
         url: 'https://www.goodreads.com/series/40983-the-horus-heresy',
@@ -77,6 +135,18 @@ Fresh from their conquest of Chondax and the discovery of Horus’s rebellion, J
           'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1332438857i/10838911.jpg',
         isbn: 9781849700610,
         pageCount: 480,
+        genreHierarchy: [
+          ['Science Fiction'],
+          ['40k'],
+          ['Fiction'],
+          ['Audiobook'],
+          ['Fantasy'],
+          ['War'],
+          ['Science Fiction', 'Military Science Fiction'],
+          ['Novels'],
+          ['Science Fiction Fantasy'],
+          ['War', 'Military Fiction'],
+        ],
         positionInSeries: 18,
         series: {
           url: 'https://www.goodreads.com/series/40983-the-horus-heresy',
@@ -102,6 +172,18 @@ In a sleepy village in the Shire, young Frodo Baggins finds himself faced with a
         'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1298411339i/34.jpg',
       isbn: 9780618346257,
       pageCount: 398,
+      genreHierarchy: [
+        ['Fantasy'],
+        ['Classics'],
+        ['Fiction'],
+        ['Adventure'],
+        ['Science Fiction Fantasy'],
+        ['Fantasy', 'High Fantasy'],
+        ['Fantasy', 'Epic Fantasy'],
+        ['Young Adult'],
+        ['Novels'],
+        ['Fantasy', 'Magic'],
+      ],
       positionInSeries: 1,
       series: {
         url: 'https://www.goodreads.com/series/66175-the-lord-of-the-rings',
@@ -124,6 +206,18 @@ Nineteen Eighty-Four is George Orwell's terrifying vision of a totalitarian futu
         'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327144697i/3744438.jpg',
       isbn: 9780141036144,
       pageCount: 311,
+      genreHierarchy: [
+        ['Classics'],
+        ['Fiction'],
+        ['Science Fiction'],
+        ['Science Fiction', 'Dystopia'],
+        ['Literature'],
+        ['Novels'],
+        ['Politics'],
+        ['Academic', 'School'],
+        ['Fantasy'],
+        ['Adult'],
+      ],
     }));
 });
 /* eslint-enable max-len */

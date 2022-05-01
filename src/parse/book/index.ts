@@ -2,6 +2,7 @@ import cheerio from 'cheerio';
 import getMetaValues from './meta';
 import getDataBoxValues from './dataBox';
 import { RawBook } from '../../types';
+import getGenres from './genres';
 
 type SeriesExtension = {
   positionInSeries?: number;
@@ -23,8 +24,12 @@ export function book(html: string): Omit<RawBook, 'url'> {
 
   // There are more fields in a pseudo-table underneath the "Get a copy"
   // section.
-  let dataBoxValues = getDataBoxValues(html);
+  const dataBoxValues = getDataBoxValues(html);
 
+  // The right-hand side of the page contains info about "Similar books" and
+  // Genres.
+  const genreHierarchy = getGenres(html);
+ 
   const ast = cheerio.load(html);
 
   // In some rare cases, the book title doesn't appear in the DataBox. However,
@@ -59,5 +64,6 @@ export function book(html: string): Omit<RawBook, 'url'> {
     ...metaValues,
     ...dataBoxValues,
     ...seriesExtension,
+    genreHierarchy,
   };
 }

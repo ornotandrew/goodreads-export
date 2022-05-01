@@ -1,5 +1,5 @@
 import { getAllReviewIds, getReviewInfo } from './review';
-import { getBookInfo } from './book';
+import { genreUrls, getBookInfo } from './book';
 import { getAuthorInfo } from './author';
 import { attachSeriesName, getSeriesInfo } from './series';
 import cliProgress from 'cli-progress';
@@ -83,6 +83,7 @@ async function extract(listId: number, multibar: cliProgress.MultiBar): Promise<
     booksByUrl,
     authorsByUrl,
     seriesByUrl: attachSeriesName(seriesByUrl, booksByUrl),
+    genreUrls: genreUrls(booksByUrl)
   };
 }
 
