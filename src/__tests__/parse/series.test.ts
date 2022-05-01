@@ -8,7 +8,7 @@ describe('series', () => {
     expect(parse.series(await getGenericUrl(urls.wheelOfTime))).toEqual({
       works: {
         primary: 14,
-        total: 46,
+        total: 62,
       },
     }));
 
@@ -24,15 +24,15 @@ describe('series', () => {
     expect(parse.series(await getGenericUrl(urls.horusHeresy))).toEqual({
       works: {
         primary: 54,
-        total: 329,
+        total: 336,
       },
     }));
 
   test('The Lord of the Rings', async () =>
     expect(parse.series(await getGenericUrl(urls.lordOfTheRings))).toEqual({
       works: {
-        primary: 3,
-        total: 7,
+        primary: 4,
+        total: 14,
       },
     }));
 });

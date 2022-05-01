@@ -27,13 +27,13 @@ And south lies Illian, where Sammael holds sway ...`,
         ['Fantasy'],
         ['Fiction'],
         ['Fantasy', 'Epic Fantasy'],
-        ['Science Fiction Fantasy'],
         ['Fantasy', 'High Fantasy'],
-        ['Adventure'],
+        ['Science Fiction Fantasy'],
         ['Epic'],
+        ['Adventure'],
         ['Audiobook'],
-        ['Young Adult'],
         ['Fantasy', 'Magic'],
+        ['Adult'],
       ],
       positionInSeries: 6,
       series: {
@@ -60,7 +60,6 @@ Fresh from their conquest of Chondax and the discovery of Horus’s rebellion, J
         ['Audiobook'],
         ['Fantasy'],
         ['Action'],
-        ['Gaming', 'Gaming Fiction'],
         ['Science Fiction', 'Military Science Fiction'],
         ['Science Fiction Fantasy'],
       ],
@@ -81,41 +80,18 @@ Fresh from their conquest of Chondax and the discovery of Horus’s rebellion, J
         'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1332287096i/13259647.jpg',
       isbn: 9781849701969,
       pageCount: 508,
-       "genreHierarchy": [
-         [
-           "Science Fiction",
-         ],
-         [
-           "40k",
-         ],
-         [
-           "Fiction",
-         ],
-         [
-           "Fantasy",
-         ],
-         [
-           "Audiobook",
-         ],
-         [
-           "Science Fiction",
-           "Military Science Fiction",
-         ],
-         [
-           "War",
-         ],
-         [
-           "Space",
-           "Space Opera",
-         ],
-         [
-           "Novels",
-         ],
-         [
-           "War",
-           "Military Fiction",
-         ],
-       ],
+      genreHierarchy: [
+        ['Science Fiction'],
+        ['40k'],
+        ['Fiction'],
+        ['Audiobook'],
+        ['Fantasy'],
+        ['Science Fiction', 'Military Science Fiction'],
+        ['War'],
+        ['Science Fiction Fantasy'],
+        ['Space', 'Space Opera'],
+        ['Novels'],
+      ],
       positionInSeries: 21,
       series: {
         url: 'https://www.goodreads.com/series/40983-the-horus-heresy',
@@ -142,9 +118,9 @@ Fresh from their conquest of Chondax and the discovery of Horus’s rebellion, J
           ['Audiobook'],
           ['Fantasy'],
           ['War'],
+          ['Science Fiction Fantasy'],
           ['Science Fiction', 'Military Science Fiction'],
           ['Novels'],
-          ['Science Fiction Fantasy'],
           ['War', 'Military Fiction'],
         ],
         positionInSeries: 18,
@@ -180,9 +156,9 @@ In a sleepy village in the Shire, young Frodo Baggins finds himself faced with a
         ['Science Fiction Fantasy'],
         ['Fantasy', 'High Fantasy'],
         ['Fantasy', 'Epic Fantasy'],
+        ['Audiobook'],
         ['Young Adult'],
         ['Novels'],
-        ['Fantasy', 'Magic'],
       ],
       positionInSeries: 1,
       series: {
@@ -205,7 +181,7 @@ Nineteen Eighty-Four is George Orwell's terrifying vision of a totalitarian futu
       imageUrl:
         'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327144697i/3744438.jpg',
       isbn: 9780141036144,
-      pageCount: 311,
+      pageCount: 326,
       genreHierarchy: [
         ['Classics'],
         ['Fiction'],

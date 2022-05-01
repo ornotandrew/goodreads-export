@@ -12,8 +12,8 @@ describe('getAllReviewids', () => {
     });
     const actual = await getAllReviewIds(ids.list, dummyMultibar);
     dummyMultibar.stop();
-    expect(goodreads.getListPage as jest.Mock).toHaveBeenCalledTimes(5);
-    expect(actual.length).toEqual(131);
+    expect(goodreads.getListPage as jest.Mock).toHaveBeenCalledTimes(6);
+    expect(actual.length).toEqual(173);
   });
 });
 
@@ -39,7 +39,7 @@ describe('getReviewInfo', () => {
     const actual = await getReviewInfo(ids.reviews.progress);
     expect(actual).toEqual({
       reviewId: ids.reviews.progress,
-      bookUrl: 'https://www.goodreads.com/book/show/35231.Lord_of_Chaos',
+      bookUrl: 'https://www.goodreads.com/book/show/8130608-lord-of-chaos',
       timeline: {
         shelved: '2020-10-22',
         started: '2020-10-22',
@@ -58,15 +58,16 @@ describe('getReviewInfo', () => {
     const actual = await getReviewInfo(ids.reviews.pageNumberProgress);
     expect(actual).toEqual({
       reviewId: ids.reviews.pageNumberProgress,
-      bookUrl: 'https://www.goodreads.com/book/show/13890.A_Crown_of_Swords',
+      bookUrl: 'https://www.goodreads.com/book/show/8153987-a-crown-of-swords',
       timeline: {
         shelved: '2020-12-22',
         started: '2020-12-22',
-        finished: null,
+        finished: '2021-02-22',
         progress: [
           { percent: 0, date: '2020-12-22' },
           { percent: 37, date: '2021-01-08' },
-          { percent: 60, date: '2021-01-30' },
+          { percent: 58.54, date: '2021-01-30' },
+          { percent: 100, date: '2021-02-22' },
         ],
       },
     });
@@ -96,9 +97,12 @@ describe('getReviewInfo', () => {
       bookUrl: 'https://www.goodreads.com/book/show/7664041-inheritance',
       timeline: {
         shelved: '2020-07-03',
-        started: null,
-        finished: '2009-01-01',
-        progress: [{ percent: 100, date: '2009-01-01' }],
+        started: '2009-04-01',
+        finished: '2009-05-01',
+        progress: [
+          { percent: 0, date: '2009-04-01' },
+          { percent: 100, date: '2009-05-01' },
+        ],
       },
     });
   });
