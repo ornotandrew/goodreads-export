@@ -26,7 +26,25 @@ export const mostRecentlyStarted = (a: RawReview, b: RawReview) => {
   }
 
   // Started books are ordered by most-recently-started first
-  return b.timeline.shelved.localeCompare(a.timeline.shelved);
+  return b.timeline.started!.localeCompare(a.timeline.started!);
+};
+
+export const mostRecentlyFinished = (a: RawReview, b: RawReview) => {
+  // If neither of the books have been finished, compare their shelved dates
+  if (!a.timeline.finished && !b.timeline.finished) {
+    return b.timeline.shelved.localeCompare(a.timeline.shelved);
+  }
+
+  // Otherwise, finished books always appear before unfinished books
+  if (!a.timeline.finished && b.timeline.finished) {
+    return 1;
+  }
+  if (a.timeline.finished && !b.timeline.finished) {
+    return -1;
+  }
+
+  // finished books are ordered by most-recently-finished first
+  return b.timeline.finished!.localeCompare(a.timeline.finished!);
 };
 
 export const reviewsFromExtract = (extract: Extract): Review[] => {
