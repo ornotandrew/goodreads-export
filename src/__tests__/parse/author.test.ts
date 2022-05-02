@@ -10,6 +10,8 @@ describe('author', () => {
       birthDate: '1948-10-17',
       deathDate: '2007-09-16',
       genres: ['Fantasy'],
+      twitterUrl: null,
+      websiteUrl: null,
     }));
 
   test('Brandon Sanderson', async () =>
@@ -28,6 +30,7 @@ describe('author', () => {
       birthDate: '1903-06-25',
       deathDate: '1950-01-21',
       genres: ['Fiction', 'Politics', 'Journalism'],
+      twitterUrl: null,
       websiteUrl: 'http://www.george-orwell.org/',
     }));
 });
