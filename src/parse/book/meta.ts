@@ -4,7 +4,7 @@ function getMetaContentByAttrib(html: string) {
   const ast = cheerio.load(html);
   const meta = ast('meta').toArray();
 
-  return (filter: Record<string, string>): string => {
+  return (filter: Record<string, string>): string | undefined => {
     const matchingNode = meta.find((node) =>
       Object.entries(filter).every(([key, value]) => node.attribs[key] === value)
     );
@@ -52,6 +52,6 @@ export default function getMetaValues(html: string): MetaValues {
   return Object.entries(metaLookup).reduce((acc, [outputKey, config]) => {
     const rawValue = searchMetaContent(config.search);
     const transform = config.transform ?? ((value: string) => value);
-    return { ...acc, [outputKey]: transform(rawValue) };
+    return { ...acc, [outputKey]: rawValue ? transform(rawValue) : null };
   }, {} as MetaValues);
 }

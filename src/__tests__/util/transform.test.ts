@@ -1,7 +1,7 @@
 import { mostRecentlyStarted } from '../../util/transform';
 import { RawReview } from '../../types';
 
-const makeReview = (started: string, shelved?: string) =>
+const makeReview = (started: string | null, shelved?: string) =>
   ({
     timeline: {
       started,

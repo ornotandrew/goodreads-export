@@ -18,7 +18,7 @@ export function reviewIds(jsText: string): ParsedReviewIds {
 
   // The line containing the actual HTML looks like the following:
   // Element.insert("booksBody", { bottom: "<the html>" });
-  const dataLine = lines.find((l) => l.startsWith('Element.insert'));
+  const dataLine = lines.find((l) => l.startsWith('Element.insert'))!;
   const html = dataLine.slice(38, dataLine.length - 4);
   const ast = cheerio.load(JSON.parse(html));
   const aTags = ast('a.nobreak');
@@ -26,12 +26,12 @@ export function reviewIds(jsText: string): ParsedReviewIds {
     console.error(ast.html().slice(0, 50) + '...');
     throw new Error("Couldn't find the expected HTML elements");
   }
-  const reviewIds = aTags.toArray().map((e) => parseInt(/\d+/.exec(e.attribs.href)[0]));
+  const reviewIds = aTags.toArray().map((e) => parseInt(/\d+/.exec(e.attribs.href)![0]));
 
   // There's also a contextual line which looks like
   // Element.update("infiniteStatus", "60 of 131 loaded");
   const statusLine = lines.find((l) => l.startsWith('Element.update'));
-  const match = /(\d+) of (\d+)/.exec(statusLine);
+  const match = /(\d+) of (\d+)/.exec(statusLine!)!;
   const [current, total] = [match[1], match[2]].map((n) => parseInt(n));
 
   // Finally, if this is the last page, we will also have the following line
@@ -76,7 +76,7 @@ export function review(html: string): Review {
       'Started Reading': 'started',
       'Finished Reading': 'finished',
       Shelved: 'shelved',
-    };
+    } as Record<string, string>;
     return mapping[goodreadsDescription] || goodreadsDescription;
   };
 

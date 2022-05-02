@@ -8,16 +8,20 @@ export const getAllReviewIds = async (
   listId: number,
   multibar: cliProgress.MultiBar
 ): Promise<number[]> => {
-  let bar: cliProgress.SingleBar;
-  let allReviewIds = [];
-  let page = 1;
+  let allReviewIds: number[] = [];
+
+  const { reviewIds, progress, isLastPage } = parse.reviewIds(await getListPage(listId, 1));
+  const bar = multibar.create(progress.total, progress.current, barOptions('Review IDs', '📋'));
+  allReviewIds = allReviewIds.concat(reviewIds)
+  if (isLastPage) {
+    return allReviewIds
+  }
+
+  let page = 2;
+  
   while (true) {
     const { reviewIds, progress, isLastPage } = parse.reviewIds(await getListPage(listId, page));
-    if (page === 1) {
-      bar = multibar.create(progress.total, progress.current, barOptions('Review IDs', '📋'));
-    } else {
-      bar.update(progress.current);
-    }
+    bar.update(progress.current);
     allReviewIds = allReviewIds.concat(reviewIds);
     if (isLastPage) {
       break;

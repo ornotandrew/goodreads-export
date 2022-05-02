@@ -11168,7 +11168,8 @@
         "Science Fiction & Fantasy",
         "Young Adult"
       ],
-      "websiteUrl": "http://suzannecollinsbooks.com/"
+      "websiteUrl": "http://suzannecollinsbooks.com/",
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/1077326.J_K_Rowling": {
       "url": "https://www.goodreads.com/author/show/1077326.J_K_Rowling",
@@ -11243,7 +11244,8 @@
         "Children's Books",
         "Young Adult"
       ],
-      "websiteUrl": "http://www.edgechronicles.co.uk/"
+      "websiteUrl": "http://www.edgechronicles.co.uk/",
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/656983.J_R_R_Tolkien": {
       "url": "https://www.goodreads.com/author/show/656983.J_R_R_Tolkien",
@@ -11255,7 +11257,8 @@
         "Fiction",
         "Children's"
       ],
-      "websiteUrl": "http://www.tolkienestate.com/"
+      "websiteUrl": "http://www.tolkienestate.com/",
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/8349.Christopher_Paolini": {
       "url": "https://www.goodreads.com/author/show/8349.Christopher_Paolini",
@@ -11302,7 +11305,8 @@
       "genres": [
         "Science Fiction & Fantasy"
       ],
-      "websiteUrl": "http://www.williamnicholson.com/"
+      "websiteUrl": "http://www.williamnicholson.com/",
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/119755.Michelle_Paver": {
       "url": "https://www.goodreads.com/author/show/119755.Michelle_Paver",
@@ -11327,7 +11331,8 @@
         "Literature & Fiction",
         "Science Fiction & Fantasy"
       ],
-      "websiteUrl": "http://www.redwallabbey.com/"
+      "websiteUrl": "http://www.redwallabbey.com/",
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/11466.Markus_Zusak": {
       "url": "https://www.goodreads.com/author/show/11466.Markus_Zusak",
@@ -11364,7 +11369,8 @@
         "Paranormal Romance",
         "Young Adult"
       ],
-      "websiteUrl": "http://www.stepheniemeyer.com/"
+      "websiteUrl": "http://www.stepheniemeyer.com/",
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/1069006.C_S_Lewis": {
       "url": "https://www.goodreads.com/author/show/1069006.C_S_Lewis",
@@ -11376,7 +11382,8 @@
         "Religion",
         "Children's"
       ],
-      "websiteUrl": "http://www.cslewis.com/"
+      "websiteUrl": "http://www.cslewis.com/",
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/108424.Patrick_Rothfuss": {
       "url": "https://www.goodreads.com/author/show/108424.Patrick_Rothfuss",
@@ -11400,7 +11407,8 @@
         "Comics & Graphic Novels",
         "Short Stories"
       ],
-      "websiteUrl": "http://www.danabnett.com/"
+      "websiteUrl": "http://www.danabnett.com/",
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/17729.Graham_McNeill": {
       "url": "https://www.goodreads.com/author/show/17729.Graham_McNeill",
@@ -11410,7 +11418,8 @@
       "genres": [
         "Science Fiction & Fantasy"
       ],
-      "websiteUrl": "http://www.graham-mcneill.com/"
+      "websiteUrl": "http://www.graham-mcneill.com/",
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/589.Orson_Scott_Card": {
       "url": "https://www.goodreads.com/author/show/589.Orson_Scott_Card",
@@ -11433,7 +11442,9 @@
       "genres": [
         "Science Fiction & Fantasy",
         "Science"
-      ]
+      ],
+      "websiteUrl": null,
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/38550.Brandon_Sanderson": {
       "url": "https://www.goodreads.com/author/show/38550.Brandon_Sanderson",
@@ -11454,7 +11465,9 @@
       "deathDate": null,
       "genres": [
         "Science Fiction & Fantasy"
-      ]
+      ],
+      "websiteUrl": null,
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/32643.James_Swallow": {
       "url": "https://www.goodreads.com/author/show/32643.James_Swallow",
@@ -11475,7 +11488,9 @@
       "deathDate": null,
       "genres": [
         "Science Fiction"
-      ]
+      ],
+      "websiteUrl": null,
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/398110.Nick_Kyme": {
       "url": "https://www.goodreads.com/author/show/398110.Nick_Kyme",
@@ -11497,7 +11512,9 @@
       "genres": [
         "Science Fiction & Fantasy",
         "Horror"
-      ]
+      ],
+      "websiteUrl": null,
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/172152.Aaron_Dembski_Bowden": {
       "url": "https://www.goodreads.com/author/show/172152.Aaron_Dembski_Bowden",
@@ -11519,7 +11536,9 @@
       "genres": [
         "Science Fiction",
         "Fantasy"
-      ]
+      ],
+      "websiteUrl": null,
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/58.Frank_Herbert": {
       "url": "https://www.goodreads.com/author/show/58.Frank_Herbert",
@@ -11529,7 +11548,8 @@
       "genres": [
         "Science Fiction & Fantasy"
       ],
-      "websiteUrl": "http://www.dunenovels.com/"
+      "websiteUrl": "http://www.dunenovels.com/",
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/874602.Ursula_K_Le_Guin": {
       "url": "https://www.goodreads.com/author/show/874602.Ursula_K_Le_Guin",
@@ -11541,7 +11561,8 @@
         "Young Adult",
         "Nonfiction"
       ],
-      "websiteUrl": "http://www.ursulakleguin.com/"
+      "websiteUrl": "http://www.ursulakleguin.com/",
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/46269.Gav_Thorpe": {
       "url": "https://www.goodreads.com/author/show/46269.Gav_Thorpe",
@@ -11562,7 +11583,9 @@
       "deathDate": "2007-09-16",
       "genres": [
         "Fantasy"
-      ]
+      ],
+      "websiteUrl": null,
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/4841825.Marion_Zimmer_Bradley": {
       "url": "https://www.goodreads.com/author/show/4841825.Marion_Zimmer_Bradley",
@@ -11574,7 +11597,8 @@
         "Science Fiction",
         "Gay and Lesbian"
       ],
-      "websiteUrl": "http://www.mzbworks.com/"
+      "websiteUrl": "http://www.mzbworks.com/",
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/8730.Naomi_Novik": {
       "url": "https://www.goodreads.com/author/show/8730.Naomi_Novik",
@@ -11598,7 +11622,8 @@
         "Romance",
         "Young Adult"
       ],
-      "websiteUrl": "http://sarahjmaas.com/"
+      "websiteUrl": "http://sarahjmaas.com/",
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/1654.Terry_Pratchett": {
       "url": "https://www.goodreads.com/author/show/1654.Terry_Pratchett",
@@ -11610,13 +11635,15 @@
         "Humor and Comedy",
         "Children's"
       ],
-      "websiteUrl": "http://www.terrypratchett.co.uk"
+      "websiteUrl": "http://www.terrypratchett.co.uk",
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/31712.Ernest_Cline": {
       "url": "https://www.goodreads.com/author/show/31712.Ernest_Cline",
       "name": "Ernest Cline",
       "birthDate": null,
       "deathDate": null,
+      "genres": null,
       "websiteUrl": "http://www.ernestcline.com",
       "twitterUrl": "http://www.twitter.com/erniecline"
     },
@@ -11625,6 +11652,8 @@
       "name": "L.J. Goulding",
       "birthDate": null,
       "deathDate": null,
+      "genres": null,
+      "websiteUrl": null,
       "twitterUrl": "http://www.twitter.com/lauriegoulding"
     },
     "https://www.goodreads.com/author/show/1001882.Chris_Wraight": {
@@ -11636,7 +11665,8 @@
         "Fantasy",
         "Science Fiction"
       ],
-      "websiteUrl": "http://chriswraight.wordpress.com/"
+      "websiteUrl": "http://chriswraight.wordpress.com/",
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/4.Douglas_Adams": {
       "url": "https://www.goodreads.com/author/show/4.Douglas_Adams",
@@ -11648,7 +11678,8 @@
         "Mystery",
         "Humor"
       ],
-      "websiteUrl": "http://www.douglasadams.com/"
+      "websiteUrl": "http://www.douglasadams.com/",
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/374683.John_van_de_Ruit": {
       "url": "https://www.goodreads.com/author/show/374683.John_van_de_Ruit",
@@ -11658,7 +11689,8 @@
       "genres": [
         "Literature & Fiction"
       ],
-      "websiteUrl": "http://johnvanderuit.book.co.za/"
+      "websiteUrl": "http://johnvanderuit.book.co.za/",
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/31232.Steven_Erikson": {
       "url": "https://www.goodreads.com/author/show/31232.Steven_Erikson",
@@ -11702,7 +11734,8 @@
         "Science Fiction & Fantasy",
         "Urban Fantasy"
       ],
-      "websiteUrl": "http://www.jim-butcher.com/"
+      "websiteUrl": "http://www.jim-butcher.com/",
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/4721536.Mark_Lawrence": {
       "url": "https://www.goodreads.com/author/show/4721536.Mark_Lawrence",
@@ -11738,13 +11771,17 @@
       "genres": [
         "Science Fiction"
       ],
-      "websiteUrl": "http://www.iain-banks.net"
+      "websiteUrl": "http://www.iain-banks.net",
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/66037.Eliyahu_M_Goldratt": {
       "url": "https://www.goodreads.com/author/show/66037.Eliyahu_M_Goldratt",
       "name": "Eliyahu M. Goldratt",
       "birthDate": null,
-      "deathDate": null
+      "deathDate": null,
+      "genres": null,
+      "websiteUrl": null,
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/78754.Gary_Keller": {
       "url": "https://www.goodreads.com/author/show/78754.Gary_Keller",
@@ -11754,7 +11791,8 @@
       "genres": [
         "Business"
       ],
-      "websiteUrl": "http://www.kellerink.com"
+      "websiteUrl": "http://www.kellerink.com",
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/3706.George_Orwell": {
       "url": "https://www.goodreads.com/author/show/3706.George_Orwell",
@@ -11766,7 +11804,8 @@
         "Politics",
         "Journalism"
       ],
-      "websiteUrl": "http://www.george-orwell.org/"
+      "websiteUrl": "http://www.george-orwell.org/",
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/5780686.Liu_Cixin": {
       "url": "https://www.goodreads.com/author/show/5780686.Liu_Cixin",
@@ -11777,7 +11816,9 @@
         "Science Fiction & Fantasy",
         "Science Fiction & Fantasy",
         "Science Fiction & Fantasy"
-      ]
+      ],
+      "websiteUrl": null,
+      "twitterUrl": null
     },
     "https://www.goodreads.com/author/show/25307.Robin_Hobb": {
       "url": "https://www.goodreads.com/author/show/25307.Robin_Hobb",

@@ -1,7 +1,7 @@
 export interface ReviewTimeline {
   shelved: string;
-  started?: string;
-  finished?: string;
+  started: string | null;
+  finished: string | null;
   progress: {
     percent: number;
     date: string;
@@ -35,9 +35,9 @@ export interface Author {
   name: string;
   birthDate: string | null;
   deathDate: string | null;
-  genres?: string[];
-  websiteUrl?: string;
-  twitterUrl?: string;
+  genres: string[] | null;
+  websiteUrl: string | null;
+  twitterUrl: string | null;
 }
 
 export interface Series {

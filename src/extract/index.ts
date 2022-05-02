@@ -73,7 +73,10 @@ async function extract(listId: number, multibar: cliProgress.MultiBar): Promise<
 
   const seriesByUrl = await batchedFetchAndIndex(
     getSeriesInfo,
-    unique(Object.values(booksByUrl), (book) => book.series?.url).filter((x) => !!x),
+    unique(
+      Object.values(booksByUrl).filter((book) => !!book.series),
+      (book) => book.series!.url
+    ),
     url,
     bars.seriesInfo
   );
@@ -83,7 +86,7 @@ async function extract(listId: number, multibar: cliProgress.MultiBar): Promise<
     booksByUrl,
     authorsByUrl,
     seriesByUrl: attachSeriesName(seriesByUrl, booksByUrl),
-    genreUrls: genreUrls(booksByUrl)
+    genreUrls: genreUrls(booksByUrl),
   };
 }
 

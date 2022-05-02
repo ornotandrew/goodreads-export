@@ -1,4 +1,4 @@
-import { RawReview, Extract, Review, Book, RawBook } from '../types';
+import { RawReview, Extract, Review, ReviewTimeline } from '../types';
 
 export function indexBy<T, K extends string | number>(
   items: Array<T>,
@@ -40,7 +40,12 @@ export const reviewsFromExtract = (extract: Extract): Review[] => {
       book.series = extract.seriesByUrl[book.series.url];
     }
 
-    const fullReview = { ...review, book };
+    const fullReview = { ...review, book } as {
+      book: any;
+      reviewId: number;
+      bookUrl?: string;
+      timeline: ReviewTimeline;
+    };
     delete fullReview.bookUrl;
 
     return fullReview;

@@ -4,7 +4,7 @@ export async function batchedPromiseAll<A, R>(
   batchSize: number
 ): Promise<R[]> {
   let position = 0;
-  let results = [];
+  let results: R[] = [];
   while (position < args.length) {
     const argsForBatch = args.slice(position, position + batchSize);
     results = [...results, ...(await Promise.all(argsForBatch.map((args) => fn(...args))))];

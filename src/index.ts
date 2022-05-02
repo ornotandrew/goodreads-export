@@ -19,7 +19,7 @@ async function run(listIdString: string) {
     );
     console.log(JSON.stringify(result, null, 2));
   } catch (e) {
-    exit(e);
+    exit(e as Error);
   }
 }
 
