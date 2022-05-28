@@ -11,7 +11,10 @@ export const unique = <T, K>(items: T[], getIndex: (item: T) => K) => [
   ...new Set(items.map(getIndex)),
 ];
 
-export const mostRecentlyStarted = (a: RawReview, b: RawReview) => {
+export const mostRecentlyStarted = (
+  a: { timeline: { started: string | null; shelved: string } },
+  b: { timeline: { started: string | null; shelved: string } }
+) => {
   // If neither of the books have been started, compare their shelved dates
   if (!a.timeline.started && !b.timeline.started) {
     return b.timeline.shelved.localeCompare(a.timeline.shelved);
@@ -29,7 +32,10 @@ export const mostRecentlyStarted = (a: RawReview, b: RawReview) => {
   return b.timeline.started!.localeCompare(a.timeline.started!);
 };
 
-export const mostRecentlyFinished = (a: RawReview, b: RawReview) => {
+export const mostRecentlyFinished = (
+  a: { timeline: { finished: string | null; shelved: string } },
+  b: { timeline: { finished: string | null; shelved: string } }
+) => {
   // If neither of the books have been finished, compare their shelved dates
   if (!a.timeline.finished && !b.timeline.finished) {
     return b.timeline.shelved.localeCompare(a.timeline.shelved);
