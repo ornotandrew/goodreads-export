@@ -16,6 +16,7 @@ export const reviewIds = {
 
 export const bookUrls = {
   lordOfChaos: 'https://www.goodreads.com/book/show/35231.Lord_of_Chaos',
+  hungerGames: 'https://www.goodreads.com/book/show/2767052-the-hunger-games',
   scars: 'https://www.goodreads.com/book/show/18143803-scars',
   fearToTread: 'https://www.goodreads.com/book/show/13259647-fear-to-tread',
   deliveranceLost: 'https://www.goodreads.com/book/show/10838911-deliverance-lost',

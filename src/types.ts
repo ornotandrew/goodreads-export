@@ -22,7 +22,7 @@ export interface RawBook {
   imageUrl: string;
   isbn: number | null;
   pageCount: number;
-  genreHierarchy: string[][]; // genres appear in order of importance
+  genres: string[];
   positionInSeries?: number;
   series?: {
     url: string;
@@ -56,7 +56,6 @@ export type Extract = {
   booksByUrl: Record<string, RawBook>;
   authorsByUrl: Record<string, Author>;
   seriesByUrl: Record<string, Series>;
-  genreUrls: Record<string, string>;
 };
 
 // The types below are designed for ease-of use. This library provides

@@ -9,10 +9,15 @@ import { indexBy } from '../util/transform';
 // in the series.
 type RawSeriesWithoutName = Omit<Series, 'name'>;
 
-export const getSeriesInfo = async (url: string): Promise<RawSeriesWithoutName> => ({
-  url,
-  ...parse.series(await getGenericUrl(url)),
-});
+export const getSeriesInfo = async (url: string): Promise<RawSeriesWithoutName> => {
+  if (!url) {
+    console.log(`seriesUrl is missing! ${url}`);
+  }
+  return {
+    url,
+    ...parse.series(await getGenericUrl(url)),
+  };
+};
 
 export const attachSeriesName = (
   seriesByUrl: Record<string, RawSeriesWithoutName>,

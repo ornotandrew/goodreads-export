@@ -1,5 +1,5 @@
 import { getAllReviewIds, getReviewInfo } from './review';
-import { genreUrls, getBookInfo } from './book';
+import { getBookInfo } from './book';
 import { getAuthorInfo } from './author';
 import { attachSeriesName, getSeriesInfo } from './series';
 import cliProgress from 'cli-progress';
@@ -8,7 +8,7 @@ import { indexBy, mostRecentlyStarted, unique } from '../util/transform';
 import { batchedPromiseAll } from '../util/dataFetching';
 import { barOptions } from '../util/cli';
 
-const batchSize = 30;
+const batchSize = 10;
 
 const batchedFetchAndIndex = async <T, V>(
   fetchFn: (arg: V) => Promise<T>,
@@ -86,7 +86,6 @@ async function extract(listId: number, multibar: cliProgress.MultiBar): Promise<
     booksByUrl,
     authorsByUrl,
     seriesByUrl: attachSeriesName(seriesByUrl, booksByUrl),
-    genreUrls: genreUrls(booksByUrl),
   };
 }
 

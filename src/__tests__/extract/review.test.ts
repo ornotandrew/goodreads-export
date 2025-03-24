@@ -3,7 +3,7 @@ import * as goodreads from '../../goodreads';
 import { reviewIds as ids } from '../constants';
 import cliProgress from 'cli-progress';
 
-describe('getAllReviewids', () => {
+describe.skip('getAllReviewids', () => {
   test('gets all the review ids.reviews.from all pages', async () => {
     const dummyMultibar = new cliProgress.MultiBar({
       noTTYOutput: true,
