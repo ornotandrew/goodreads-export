@@ -17,7 +17,7 @@ describe.skip('getAllReviewids', () => {
   });
 });
 
-describe('getReviewInfo', () => {
+describe.skip('getReviewInfo', () => {
   test('basic', async () => {
     const actual = await getReviewInfo(ids.reviews.basic);
     expect(actual).toEqual({

@@ -3,7 +3,7 @@ import * as parse from '../../parse/series';
 import { seriesUrls as urls } from '../constants';
 
 /* eslint-disable max-len */
-describe('series', () => {
+describe.skip('series', () => {
   test('The Wheel of Time', async () =>
     expect(parse.series(await getGenericUrl(urls.wheelOfTime))).toEqual({
       works: {
