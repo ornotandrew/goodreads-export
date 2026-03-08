@@ -2,7 +2,7 @@ import { getListPage, getReview } from '../goodreads';
 import * as parse from '../parse/review';
 import cliProgress from 'cli-progress';
 import { RawReview, ReviewTimeline } from '../types';
-import { barOptions } from '../util/cli';
+import { barOptions, createBar } from '../util/cli';
 
 export const getAllReviewIds = async (
   listId: number,
@@ -11,7 +11,7 @@ export const getAllReviewIds = async (
   let allReviewIds: number[] = [];
 
   const { reviewIds, progress, isLastPage } = parse.reviewIds(await getListPage(listId, 1));
-  const bar = multibar.create(progress.total, progress.current, barOptions('Review IDs', '📋'));
+  const bar = createBar(progress.total, progress.current, barOptions('Review IDs', '📋'));
   allReviewIds = allReviewIds.concat(reviewIds)
   if (isLastPage) {
     return allReviewIds
