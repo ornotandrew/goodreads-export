@@ -1,10 +1,10 @@
 import { stderr as chalk } from 'chalk';
 import cliProgress from 'cli-progress';
 
-// Always use no-op bars to avoid TTY/stream issues in various environments
-// This ensures the tool works in CI, containers, and other non-interactive contexts
+// Detect if we have a real TTY
+const isTTY = process.stdout.isTTY && process.stderr.isTTY;
 
-// Create a no-op bar for all environments
+// Create a no-op bar for environments without TTY
 const createNoOpBar = (_total: number, _current: number, _options: any): cliProgress.SingleBar => {
   const noOp = {
     start: () => {},
@@ -27,26 +27,67 @@ const createNoOpBar = (_total: number, _current: number, _options: any): cliProg
   return noOp;
 };
 
-// Export a getMultibar that always returns null (to trigger no-op)
-export const getMultibar = (): cliProgress.MultiBar | null => null;
+let multibar: cliProgress.MultiBar | null = null;
 
-// Use no-op bars everywhere
+// Try to create a real multibar only if we have a TTY
+if (isTTY) {
+  try {
+    multibar = new cliProgress.MultiBar(
+      {
+        clearOnComplete: true,
+        hideCursor: true,
+        stream: process.stderr,
+        format: [
+          '{description}',
+          chalk.grey('{bar}'),
+          chalk.bold('{percentage}%'),
+          chalk.grey('[{value}/{total}]'),
+        ].join(' '),
+      },
+      cliProgress.Presets.shades_classic
+    );
+  } catch (e) {
+    // Failed to create multibar, will use no-op
+  }
+}
+
+// Export a getMultibar that returns null if no TTY
+export const getMultibar = (): cliProgress.MultiBar | null => multibar;
+export { isTTY };
+
+// Use real bars when possible, no-op when not
 export const createBar = (
   total: number,
   current: number,
   options: any
-): cliProgress.SingleBar => createNoOpBar(total, current, options);
+): cliProgress.SingleBar => {
+  // If no TTY, always use no-op
+  if (!isTTY || !multibar) {
+    return createNoOpBar(total, current, options);
+  }
+  try {
+    return multibar.create(total, current, options);
+  } catch (e) {
+    console.error('Warning: Failed to create progress bar, continuing without');
+    return createNoOpBar(total, current, options);
+  }
+};
 
 export const barOptions = (description: string, emoji: string) => ({
   description: description.padEnd(15) + emoji,
 });
 
 export const exit = (error?: Error) => {
+  try {
+    multibar?.stop();
+  } catch (e) {
+    // Ignore
+  }
   if (error) {
     console.error(error.stack);
   }
   process.exit(1);
 };
 
-// Keep multibar exported for backward compatibility (but it's null)
-export const multibar = null as any;
+// Keep multibar exported for backward compatibility
+export { multibar };
